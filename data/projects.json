@@ -1,0 +1,40 @@
+{
+  "bots": [
+    {
+      "name": "StaffBot",
+      "description": "Bot completo para gestionar el equipo de staff en una network de Minecraft. Incluye comandos administrativos, control de roles y logs detallados."
+    },
+    {
+      "name": "WidowNetwork & WaterMC Bot",
+      "description": "Bot avanzado para networks de Minecraft. Ofrece tickets, moderación, anti-raid, estadísticas y sincronización con el servidor."
+    },
+    {
+      "name": "EchoGiveaways",
+      "description": "Bot de sorteos para Discord con soporte avanzado, múltiples tipos de sorteos y gestión automatizada de participantes."
+    }
+  ],
+  "plugins": [
+    {
+      "name": "EchoGraves",
+      "description": "Plugin que permite a los jugadores recuperar sus ítems al morir. Personalizable y compatible con múltiples mundos."
+    },
+    {
+      "name": "EchoPvP",
+      "description": "Sistema de PvP completo: estadísticas, combat log, recompensas por kills y mucho más."
+    },
+    {
+      "name": "EchoEconomy",
+      "description": "Sistema económico con soporte para varias monedas, transacciones cross-server, tiendas y API para integración externa."
+    }
+  ],
+  "webs": [
+    {
+      "name": "DestinoRP",
+      "description": "Web para un servidor FiveM roleplay. Incluye información del servidor y foro de comunidad. Hecha con HTML, CSS y JS puro."
+    },
+    {
+      "name": "Portafolio Personal",
+      "description": "Portafolio en modo oscuro con diseño moderno, animaciones suaves y secciones interactivas. Desarrollado con HTML, CSS y JS."
+    }
+  ]
+}
