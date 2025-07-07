@@ -16,7 +16,7 @@
   "plugins": [
     {
       "name": "AutoEconomy",
-      "description": "Sistema de economía configurable con varias bases de datos y recompensas por matar."
+      "description": "Sistema de economía configurable con varias bases de datos, recompensas por matar y más."
     },
     {
       "name": "BloxFruits",
@@ -32,7 +32,8 @@
     },
     {
       "name": "EchoEconomy",
-      "description": "Sistema económico con múltiples monedas, transacciones cross-server y tiendas."
+      "description": "Sistema económico con múltiples monedas, transacciones cross-server y tiendas.",
+      "github": "https://github.com/7Str1kes/EchoEconomy"
     },
     {
       "name": "EchoPvP",
@@ -68,7 +69,8 @@
     },
     {
       "name": "RankManager",
-      "description": "Add-on para LuckPerms con gestión visual de rangos y permisos."
+      "description": "Add-on para LuckPerms con gestión visual de rangos y permisos.",
+      "github": "https://github.com/7Str1kes/RankManager"
     },
     {
       "name": "StaffPunishment",
@@ -82,7 +84,13 @@
     },
     {
       "name": "Portafolio Personal",
-      "description": "Portafolio en modo oscuro con diseño moderno, animaciones suaves y secciones interactivas. Desarrollado con HTML, CSS y JS."
+      "description": "Portafolio en modo oscuro con diseño moderno, animaciones suaves y secciones interactivas. Desarrollado con HTML, CSS y JS.",
+      "github": "https://github.com/7Str1kes/portfolio"
+    },
+    {
+      "name": "Notes App",
+      "description": "Web sencilla para tomar notas rápidas, con interfaz minimalista y guardado local.",
+      "github": "https://github.com/7Str1kes/notes-app"
     }
   ]
 }
