@@ -372,6 +372,16 @@ h3 i {
   margin-bottom: 3rem;
 }
 
+.project-link {
+  color: #0abde3;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.project-link:hover {
+  color: #08a0c7;
+}
+
 footer {
   padding: 3rem 1.5rem;
   background-color: var(--darker);

@@ -90,10 +90,16 @@ async function loadProjects() {
 function createProjectCard(project, index) {
   const div = document.createElement('div');
   div.classList.add('project-card');
+
+  const title = project.github
+    ? `<a href="${project.github}" target="_blank" class="project-link">${project.name}</a>`
+    : project.name;
+
   div.innerHTML = `
-    <h4 class="project-title">${project.name}</h4>
+    <h4 class="project-title">${title}</h4>
     <p>${project.description}</p>
   `;
+  
   div.style.animationDelay = `${index * 0.1}s`;
   return div;
 }
