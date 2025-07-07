@@ -15,16 +15,64 @@
   ],
   "plugins": [
     {
-      "name": "EchoGraves",
-      "description": "Plugin que permite a los jugadores recuperar sus ítems al morir. Personalizable y compatible con múltiples mundos."
+      "name": "AutoEconomy",
+      "description": "Sistema de economía configurable con varias bases de datos y recompensas por matar."
     },
     {
-      "name": "EchoPvP",
-      "description": "Sistema de PvP completo: estadísticas, combat log, recompensas por kills y mucho más."
+      "name": "BloxFruits",
+      "description": "Plugin inspirado en Roblox y Anime con sistema de islas, niveles, frutas y espadas personalizadas."
+    },
+    {
+      "name": "BungeeStats",
+      "description": "Plugin para BungeeCord que recoge stats del servidor y las guarda en MongoDB."
+    },
+    {
+      "name": "FFA-Event",
+      "description": "Evento FFA para Survival con configuración de arenas, kits y recompensas."
     },
     {
       "name": "EchoEconomy",
-      "description": "Sistema económico con soporte para varias monedas, transacciones cross-server, tiendas y API para integración externa."
+      "description": "Sistema económico con múltiples monedas, transacciones cross-server y tiendas."
+    },
+    {
+      "name": "EchoPvP",
+      "description": "Sistema completo de PvP con estadísticas, combat log y recompensas por kills."
+    },
+    {
+      "name": "EchoGraves",
+      "description": "Permite recuperar ítems perdidos al morir, con personalización y soporte multi-mundo."
+    },
+    {
+      "name": "EchoStaff",
+      "description": "Herramientas para staff con soporte BungeeCord, staff chat y admin chat sincronizado."
+    },
+    {
+      "name": "GensCore",
+      "description": "Core para modalidad Gens, adaptado según peticiones del servidor."
+    },
+    {
+      "name": "Hormiguero",
+      "description": "Evento con equipos, farm y PvP tras abrir la puerta."
+    },
+    {
+      "name": "PromoteManager",
+      "description": "Gestiona rangos del staff con comandos para promover y degradar."
+    },
+    {
+      "name": "RandomKits",
+      "description": "Core para modalidad RandomKits con creación de kits, estadísticas, dinero, tienda."
+    },
+    {
+      "name": "SimpleDuels",
+      "description": "Sistema de duelos con selección de kit y arena, 100% personalizable."
+    },
+    {
+      "name": "RankManager",
+      "description": "Add-on para LuckPerms con gestión visual de rangos y permisos."
+    },
+    {
+      "name": "StaffPunishment",
+      "description": "Sistema fácil para sancionar usuarios mediante comandos y selección rápida."
     }
   ],
   "webs": [
