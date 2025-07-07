@@ -161,6 +161,46 @@ h1 {
   background-color: #4752C4;
 }
 
+.social-btn.github {
+  background-color: #333;
+}
+
+.social-btn.github:hover {
+  background-color: #555;
+}
+
+.github-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+[data-theme="light"] .github-btn {
+  background-color: #4078c0;
+}
+
+[data-theme="light"] .github-btn:hover {
+  background-color: #5a8bd6;
+}
+
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.github-btn:hover {
+  background-color: #555;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
 .scroll-down {
   position: absolute;
   bottom: 2rem;
