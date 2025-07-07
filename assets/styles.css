@@ -496,3 +496,60 @@ footer {
   font-size: 0.8rem;
   opacity: 0.8;
 }
+
+#servicios {
+  background: #1e1e2f;
+  border: 2px solid #00bcd4;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  margin: 3rem auto;
+  max-width: 700px;
+  color: #ccc;
+}
+
+#servicios h2 {
+  color: #00bcd4;
+  margin-bottom: 1rem;
+}
+
+#servicios p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-contact {
+  background-color: #00bcd4;
+  color: #121212;
+  padding: 0.8rem 1.5rem;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-contact:hover {
+  background-color: #0092a3;
+}
+
+[data-theme="light"] #servicios {
+  background: #e0f7fa;
+  border: 2px solid #007c91;
+  color: #004d54;
+}
+[data-theme="light"] #servicios h2 {
+  color: #007c91;
+}
+[data-theme="light"] #servicios p {
+  color: #004d54;
+}
+[data-theme="light"] .btn-contact {
+  background-color: #007c91;
+  color: #e0f7fa;
+}
+[data-theme="light"] .btn-contact:hover {
+  background-color: #005f6a;
+}
