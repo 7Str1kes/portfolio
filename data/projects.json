@@ -5,73 +5,11 @@
       "description": "Bot completo para gestionar el equipo de staff en una network de Minecraft. Incluye comandos administrativos, control de roles y logs detallados."
     },
     {
-      "name": "WidowNetwork & WaterMC Bot",
-      "description": "Bot avanzado para networks de Minecraft. Ofrece tickets, moderación, anti-raid, estadísticas y sincronización con el servidor."
-    },
-    {
       "name": "EchoGiveaways",
       "description": "Bot de sorteos para Discord con soporte avanzado, múltiples tipos de sorteos y gestión automatizada de participantes."
     }
   ],
   "plugins": [
-    {
-      "name": "AutoEconomy",
-      "description": "Sistema de economía configurable con varias bases de datos, recompensas por matar y más."
-    },
-    {
-      "name": "BloxFruits",
-      "description": "Plugin inspirado en Roblox y Anime con sistema de islas, niveles, frutas y espadas personalizadas."
-    },
-    {
-      "name": "BungeeStats",
-      "description": "Plugin para BungeeCord que recoge stats del servidor y las guarda en MongoDB."
-    },
-    {
-      "name": "FFA-Event",
-      "description": "Evento FFA para Survival con configuración de arenas, kits y recompensas."
-    },
-    {
-      "name": "EchoEconomy",
-      "description": "Sistema económico con múltiples monedas, transacciones cross-server y tiendas.",
-      "github": "https://github.com/7Str1kes/EchoEconomy"
-    },
-    {
-      "name": "EchoPvP",
-      "description": "Sistema completo de PvP con estadísticas, combat log y recompensas por kills."
-    },
-    {
-      "name": "EchoGraves",
-      "description": "Permite recuperar ítems perdidos al morir, con personalización y soporte multi-mundo."
-    },
-    {
-      "name": "EchoStaff",
-      "description": "Herramientas para staff con soporte BungeeCord, staff chat y admin chat sincronizado."
-    },
-    {
-      "name": "GensCore",
-      "description": "Core para modalidad Gens, adaptado según peticiones del servidor."
-    },
-    {
-      "name": "Hormiguero",
-      "description": "Evento con equipos, farm y PvP tras abrir la puerta."
-    },
-    {
-      "name": "PromoteManager",
-      "description": "Gestiona rangos del staff con comandos para promover y degradar."
-    },
-    {
-      "name": "RandomKits",
-      "description": "Core para modalidad RandomKits con creación de kits, estadísticas, dinero, tienda."
-    },
-    {
-      "name": "SimpleDuels",
-      "description": "Sistema de duelos con selección de kit y arena, 100% personalizable."
-    },
-    {
-      "name": "RankManager",
-      "description": "Add-on para LuckPerms con gestión visual de rangos y permisos.",
-      "github": "https://github.com/7Str1kes/RankManager"
-    },
     {
       "name": "StaffPunishment",
       "description": "Sistema fácil para sancionar usuarios mediante comandos y selección rápida."
