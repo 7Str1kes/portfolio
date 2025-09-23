@@ -13,6 +13,46 @@
     {
       "name": "StaffPunishment",
       "description": "Sistema fácil para sancionar usuarios mediante comandos y selección rápida."
+    },
+    {
+      "name": "DTC",
+      "description": "Plugin para el evento 'Destroy The Core'."
+    },
+    {
+      "name": "Hub core",
+      "description": "Sistema central para el hub."
+    },
+    {
+      "name": "Koth",
+      "description": "Gestión de eventos KOTH, con control de puntos y recompensas."
+    },
+    {
+      "name": "Staff core",
+      "description": "Herramientas esenciales para el equipo de staff, incluyendo teleports, moderación y logs."
+    },
+    {
+      "name": "Survival core",
+      "description": "Base de funcionalidades para el modo Survival: economía, kits, dinero, y más."
+    },
+    {
+      "name": "ServerMonitor",
+      "description": "Plugin BungeeCord para monitorizar servidores."
+    },
+    {
+      "name": "Múltiples eventos",
+      "description": "Gestión de eventos especiales como EchoesOfTheVoid y GrandEvent."
+    },
+    {
+      "name": "Lores",
+      "description": "Sistema para gestionar y personalizar los lore de ítems dentro del servidor."
+    },
+    {
+      "name": "RandomKits core",
+      "description": "Plugin que ofrece kits aleatorios a los jugadores con configuraciones de cooldown y rareza."
+    },
+    {
+      "name": "Evento de hormiguero",
+      "description": "Evento especial inspirado en el hormiguero."
     }
   ],
   "webs": [
