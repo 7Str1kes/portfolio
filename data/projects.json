@@ -12,7 +12,8 @@
   "plugins": [
     {
       "name": "StaffPunishment",
-      "description": "Sistema fácil para sancionar usuarios mediante comandos y selección rápida."
+      "description": "Sistema fácil para sancionar usuarios mediante comandos y selección rápida.",
+      "github": "https://github.com/7Str1kes/StaffPunishment"
     },
     {
       "name": "DTC",
@@ -36,7 +37,8 @@
     },
     {
       "name": "ServerMonitor",
-      "description": "Plugin BungeeCord para monitorizar servidores."
+      "description": "Plugin BungeeCord para monitorizar servidores.",
+      "github": "https://github.com/GL-Studios/ServerMonitor"
     },
     {
       "name": "Múltiples eventos",
@@ -44,7 +46,8 @@
     },
     {
       "name": "Lores",
-      "description": "Sistema para gestionar y personalizar los lore de ítems dentro del servidor."
+      "description": "Sistema para gestionar y personalizar los lore de ítems dentro del servidor.",
+      "github": "https://github.com/7Str1kes/EchoLores"
     },
     {
       "name": "RandomKits core",
