@@ -1,22 +1,9 @@
-const experienceData = [
-  {
-    title: "Widow Network",
-    years: "2023 - 2025",
-    dates: "08/06/2023 - 05/09/2025",
-    description: "Responsable del desarrollo de bots y varios plugins para el servidor. También lideré el equipo de staff y fui organizador principal de los eventos.",
-    order: 1
-  },
-  {
-    title: "WaterMC",
-    years: "2024",
-    dates: "21/04/2024 - 08/09/2024",
-    description: "Desarrollador de bots personalizados para Discord, enfocados en una network de Minecraft.",
-    order: 2
-  }
-];
-
 async function loadExperience() {
   try {
+    const response = await fetch('./data/experience.json');
+    if (!response.ok) throw new Error('Error al cargar experience.json');
+
+    const experienceData = await response.json();
     const container = document.getElementById('experience-container');
     container.innerHTML = '';
 
@@ -49,6 +36,10 @@ async function loadExperience() {
 
 async function loadProjects() {
   try {
+    const response = await fetch('./data/projects.json');
+    if (!response.ok) throw new Error('Error al cargar projects.json');
+
+    const projectsData = await response.json();
     const container = document.getElementById('projects-grid');
     container.innerHTML = '';
 
