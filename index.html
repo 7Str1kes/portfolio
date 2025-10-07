@@ -4,26 +4,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>7Str1kes | Portafolio</title>
+  <title>7Str1kes | Desarrollador Full Stack</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Portfolio de 7Str1kes (Santiago) - Desarrollador especializado en Plugins/Mods de Minecraft, Bots de Discord y Desarrollo Web. Más de 3 años de experiencia." />
+  <meta name="keywords"
+    content="7Str1kes, desarrollador, Minecraft, plugins, Discord bots, desarrollo web, Java, JavaScript, Node.js" />
+  <meta name="author" content="7Str1kes" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://7str1kes.github.io/" />
+  <meta property="og:title" content="7Str1kes | Desarrollador Full Stack" />
+  <meta property="og:description"
+    content="Portfolio de 7Str1kes - Desarrollador especializado en Plugins de Minecraft, Bots de Discord y Desarrollo Web." />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://7str1kes.github.io/" />
+  <meta property="twitter:title" content="7Str1kes | Desarrollador Full Stack" />
+  <meta property="twitter:description"
+    content="Portfolio de 7Str1kes - Desarrollador especializado en Plugins de Minecraft, Bots de Discord y Desarrollo Web." />
+
   <link rel="stylesheet" href="assets/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-  <div class="theme-toggle-container">
-    <button id="theme-toggle" aria-label="Cambiar tema">
-      <i class="fas fa-moon"></i>
-    </button>
-  </div>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <div class="nav-logo">
+        <span class="logo-text">7Str1kes</span>
+      </div>
+      <div class="nav-links">
+        <a href="#sobre-mi" class="nav-link">Sobre mí</a>
+        <a href="#experiencia" class="nav-link">Experiencia</a>
+        <a href="#proyectos" class="nav-link">Proyectos</a>
+        <a href="#servicios" class="nav-link">Contacto</a>
+      </div>
+      <button id="theme-toggle" aria-label="Cambiar tema">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </nav>
 
   <header>
     <div class="header-content">
-      <h1>Hola, soy <span class="highlight">7Str1kes</span></h1>
-      <p class="subtitle">Desarrollador especializado en Plugins/Mods de Minecraft, Bots de Discord y Desarrollo Web</p>
-      <div class="social-links">
-        <a href="mailto:myfuncdev@gmail.com" class="social-btn"><i class="fas fa-envelope"></i> Email</a>
-        <a href="https://discord.gg/xnj9GPDTfZ" class="social-btn discord"><i class="fab fa-discord"></i> Discord</a>
-        <a href="https://github.com/7Str1kes" class="social-btn github"><i class="fab fa-github"></i> GitHub</a>
+      <div class="header-text">
+        <h1>Hola, soy <span class="highlight">7Str1kes</span></h1>
+        <p class="subtitle">Desarrollador especializado en Plugins/Mods de Minecraft, Bots de Discord y Desarrollo Web
+        </p>
+        <div class="social-links">
+          <a href="mailto:myfuncdev@gmail.com" class="social-btn"><i class="fas fa-envelope"></i> Email</a>
+          <a href="https://discord.gg/xnj9GPDTfZ" class="social-btn discord"><i class="fab fa-discord"></i> Discord</a>
+          <a href="https://github.com/7Str1kes" class="social-btn github"><i class="fab fa-github"></i> GitHub</a>
+        </div>
       </div>
     </div>
     <div class="scroll-down">
@@ -70,24 +108,30 @@
 
     <section id="experiencia" class="section-block">
       <h2><i class="fas fa-briefcase"></i> Experiencia</h2>
-      <div id="experience-container" class="grid"></div>
+      <div class="timeline-container">
+        <div id="experience-container" class="timeline"></div>
+      </div>
     </section>
 
     <section id="proyectos" class="section-block">
-      <h2><i class="fas fa-code"></i> Proyectos</h2>
+      <h2><i class="fas fa-code"></i> Proyectos Destacados</h2>
 
-      <div class="project-section">
-        <h3><i class="fab fa-discord"></i> Bots de Discord</h3>
-        <div id="projects-bots" class="grid"></div>
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">
+          <i class="fas fa-th"></i> Todos
+        </button>
+        <button class="filter-btn" data-filter="bots">
+          <i class="fab fa-discord"></i> Bots
+        </button>
+        <button class="filter-btn" data-filter="plugins">
+          <i class="fas fa-cube"></i> Plugins
+        </button>
+        <button class="filter-btn" data-filter="webs">
+          <i class="fas fa-globe"></i> Web
+        </button>
       </div>
-      <div class="project-section">
-        <h3><i class="fas fa-cube"></i> Plugins de Minecraft</h3>
-        <div id="projects-plugins" class="grid"></div>
-      </div>
-      <div class="project-section">
-        <h3><i class="fas fa-globe"></i> Páginas Web</h3>
-        <div id="projects-webs" class="grid"></div>
-      </div>
+
+      <div id="projects-grid" class="projects-grid"></div>
 
       <div class="github-cta">
         <a href="https://github.com/7Str1kes?tab=repositories" class="github-btn">
@@ -103,7 +147,8 @@
       Tengo comisiones abiertas para desarrollo de plugins, bots o páginas web.
       Si quieres algo a medida, <strong>no dudes en contactarme</strong>.
     </p>
-    <a href="https://discord.gg/xnj9GPDTfZ" class="social-btn discord"><i class="fab fa-discord"></i> Discord</a>
+    <a href="https://discord.gg/xnj9GPDTfZ" class="social-btn discord"><i class="fab fa-discord"></i> Contactar por
+      Discord</a>
   </section>
 
   <footer>

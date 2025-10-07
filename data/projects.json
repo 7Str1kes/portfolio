@@ -2,75 +2,62 @@
   "bots": [
     {
       "name": "StaffBot",
-      "description": "Bot completo para gestionar el equipo de staff en una network de Minecraft. Incluye comandos administrativos, control de roles y logs detallados."
+      "description": "Bot completo para gestionar el equipo de staff en una network de Minecraft. Incluye comandos administrativos, control de roles y logs detallados.",
+      "type": "bots",
+      "icon": "fab fa-discord",
+      "github": null
     },
     {
       "name": "EchoGiveaways",
-      "description": "Bot de sorteos para Discord con soporte avanzado, múltiples tipos de sorteos y gestión automatizada de participantes."
+      "description": "Bot de sorteos para Discord con soporte avanzado, múltiples tipos de sorteos y gestión automatizada de participantes.",
+      "type": "bots",
+      "icon": "fas fa-gift",
+      "github": null
     }
   ],
   "plugins": [
     {
       "name": "StaffPunishment",
       "description": "Sistema fácil para sancionar usuarios mediante comandos y selección rápida.",
+      "type": "plugins",
+      "icon": "fas fa-gavel",
       "github": "https://github.com/7Str1kes/StaffPunishment"
     },
     {
-      "name": "DTC",
-      "description": "Plugin para el evento 'Destroy The Core'."
-    },
-    {
-      "name": "Hub core",
-      "description": "Sistema central para el hub."
-    },
-    {
-      "name": "Koth",
-      "description": "Gestión de eventos KOTH, con control de puntos y recompensas."
-    },
-    {
-      "name": "Staff core",
-      "description": "Herramientas esenciales para el equipo de staff, incluyendo teleports, moderación y logs."
-    },
-    {
-      "name": "Survival core",
-      "description": "Base de funcionalidades para el modo Survival: economía, kits, dinero, y más."
-    },
-    {
       "name": "ServerMonitor",
-      "description": "Plugin BungeeCord para monitorizar servidores.",
+      "description": "Plugin BungeeCord para monitorizar servidores en tiempo real.",
+      "type": "plugins",
+      "icon": "fas fa-server",
       "github": "https://github.com/GL-Studios/ServerMonitor"
     },
     {
-      "name": "Múltiples eventos",
-      "description": "Gestión de eventos especiales como EchoesOfTheVoid y GrandEvent."
-    },
-    {
-      "name": "Lores",
+      "name": "EchoLores",
       "description": "Sistema para gestionar y personalizar los lore de ítems dentro del servidor.",
+      "type": "plugins",
+      "icon": "fas fa-scroll",
       "github": "https://github.com/7Str1kes/EchoLores"
-    },
-    {
-      "name": "RandomKits core",
-      "description": "Plugin que ofrece kits aleatorios a los jugadores con configuraciones de cooldown y rareza."
-    },
-    {
-      "name": "Evento de hormiguero",
-      "description": "Evento especial inspirado en el hormiguero."
     }
   ],
   "webs": [
     {
       "name": "DestinoRP",
-      "description": "Web para un servidor FiveM roleplay. Incluye información del servidor y foro de comunidad. Hecha con HTML, CSS y JS puro."
+      "description": "Web para un servidor FiveM roleplay. Incluye información del servidor y foro de comunidad. Hecha con HTML, CSS y JS puro.",
+      "type": "webs",
+      "icon": "fas fa-car",
+      "github": null
     },
     {
       "name": "Portafolio Personal",
       "description": "Portafolio en modo oscuro con diseño moderno, animaciones suaves y secciones interactivas. Desarrollado con HTML, CSS y JS.",
+      "type": "webs",
+      "icon": "fas fa-user",
       "github": "https://github.com/7Str1kes/portfolio"
     },
     {
       "name": "Notes App",
       "description": "Web sencilla para tomar notas rápidas, con interfaz minimalista y guardado local.",
+      "type": "webs",
+      "icon": "fas fa-sticky-note",
       "github": "https://github.com/7Str1kes/notes-app"
     }
   ]

@@ -1,30 +1,38 @@
+const experienceData = [
+  {
+    title: "Widow Network",
+    years: "2023 - 2025",
+    dates: "08/06/2023 - 05/09/2025",
+    description: "Responsable del desarrollo de bots y varios plugins para el servidor. También lideré el equipo de staff y fui organizador principal de los eventos.",
+    order: 1
+  },
+  {
+    title: "WaterMC",
+    years: "2024",
+    dates: "21/04/2024 - 08/09/2024",
+    description: "Desarrollador de bots personalizados para Discord, enfocados en una network de Minecraft.",
+    order: 2
+  }
+];
+
 async function loadExperience() {
   try {
-    const res = await fetch('./data/experience.json');
-
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-
-    const data = await res.json();
     const container = document.getElementById('experience-container');
-
     container.innerHTML = '';
 
-    data.forEach((exp, index) => {
+    experienceData.sort((a, b) => a.order - b.order);
+
+    experienceData.forEach((exp, index) => {
       const div = document.createElement('div');
-      div.classList.add('project-card');
+      div.classList.add('timeline-item');
       div.innerHTML = `
         <div class="exp-header">
-          <strong>${exp.title}</strong>
-          <span class="exp-years" style="color: var(--primary); font-weight: 600; font-size: 0.9rem; margin-top: 0.5rem; display: block;">${exp.years}</span>
+          <h3 class="exp-title">${exp.title}</h3>
+          <span class="exp-years">${exp.years}</span>
         </div>
-        <p class="exp-description" style="margin-top: 1rem; line-height: 1.6;">${exp.description}</p>
+        <p class="exp-description">${exp.description}</p>
       `;
-      div.style.animationDelay = `${index * 0.15}s`;
-      div.style.opacity = '0';
-      div.style.transform = 'translateY(30px)';
-      div.style.animation = 'fadeIn 0.8s ease forwards';
+      div.style.animationDelay = `${index * 0.2}s`;
       container.appendChild(div);
     });
   } catch (error) {
@@ -34,7 +42,6 @@ async function loadExperience() {
       <div class="error-card">
         <i class="fas fa-exclamation-triangle"></i>
         <p>No se pudo cargar la información de experiencia.</p>
-        <small>${error.message}</small>
       </div>
     `;
   }
@@ -42,81 +49,94 @@ async function loadExperience() {
 
 async function loadProjects() {
   try {
-    const res = await fetch('./data/projects.json');
+    const container = document.getElementById('projects-grid');
+    container.innerHTML = '';
 
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-
-    const data = await res.json();
-    const containers = {
-      bots: document.getElementById('projects-bots'),
-      plugins: document.getElementById('projects-plugins'),
-      webs: document.getElementById('projects-webs')
-    };
-
-    Object.values(containers).forEach(container => {
-      container.innerHTML = '';
-    });
-
-    if (data.bots) {
-      data.bots.forEach((project, index) => {
-        containers.bots.appendChild(createProjectCard(project, index));
-      });
-    }
-
-    if (data.plugins) {
-      data.plugins.forEach((project, index) => {
-        containers.plugins.appendChild(createProjectCard(project, index));
-      });
-    }
-
-    if (data.webs) {
-      data.webs.forEach((project, index) => {
-        containers.webs.appendChild(createProjectCard(project, index));
-      });
-    }
-  } catch (error) {
-    console.error('Error al cargar proyectos:', error);
-    const containers = [
-      document.getElementById('projects-bots'),
-      document.getElementById('projects-plugins'),
-      document.getElementById('projects-webs')
+    const allProjects = [
+      ...projectsData.bots,
+      ...projectsData.plugins,
+      ...projectsData.webs
     ];
 
-    containers.forEach(container => {
-      if (container) {
-        container.innerHTML = `
-          <div class="error-card">
-            <i class="fas fa-exclamation-triangle"></i>
-            <p>No se pudo cargar la información de proyectos.</p>
-            <small>${error.message}</small>
-          </div>
-        `;
-      }
+    allProjects.forEach((project, index) => {
+      const card = createProjectCard(project, index);
+      container.appendChild(card);
     });
+
+    setupProjectFilters();
+  } catch (error) {
+    console.error('Error al cargar proyectos:', error);
+    const container = document.getElementById('projects-grid');
+    container.innerHTML = `
+      <div class="error-card">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p>No se pudo cargar la información de proyectos.</p>
+      </div>
+    `;
   }
 }
 
 function createProjectCard(project, index) {
-  const div = document.createElement('div');
-  div.classList.add('project-card');
+  const card = document.createElement('div');
+  card.classList.add('project-card');
+  card.setAttribute('data-type', project.type);
+  card.style.animationDelay = `${index * 0.1}s`;
 
-  const title = project.github
-    ? `<a href="${project.github}" target="_blank" class="project-link">${project.name}</a>`
-    : project.name;
+  const typeLabels = {
+    bots: 'Bot',
+    plugins: 'Plugin',
+    webs: 'Web'
+  };
 
-  div.innerHTML = `
-    <strong class="project-title">${title}</strong>
-    <p style="margin-top: auto; color: var(--text-secondary); line-height: 1.6;">${project.description}</p>
+  card.innerHTML = `
+    <div class="project-image">
+      <i class="${project.icon}"></i>
+    </div>
+    <div class="project-content">
+      <div class="project-header">
+        <h3 class="project-title">${project.name}</h3>
+        <span class="project-type ${project.type}">${typeLabels[project.type]}</span>
+      </div>
+      <p class="project-description">${project.description}</p>
+      ${project.github ? `
+        <div class="project-footer">
+          <a href="${project.github}" target="_blank" class="project-link">
+            Ver en GitHub <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      ` : ''}
+    </div>
   `;
 
-  div.style.animationDelay = `${index * 0.15}s`;
-  div.style.opacity = '0';
-  div.style.transform = 'translateY(30px)';
-  div.style.animation = 'fadeIn 0.8s ease forwards';
+  return card;
+}
 
-  return div;
+function setupProjectFilters() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      projectCards.forEach((card, index) => {
+        const cardType = card.getAttribute('data-type');
+
+        if (filter === 'all' || cardType === filter) {
+          card.classList.remove('hidden');
+          card.style.animation = 'none';
+          setTimeout(() => {
+            card.style.animation = `fadeInUp 0.6s ease forwards ${index * 0.1}s`;
+          }, 10);
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
 }
 
 function setupSmoothScroll() {
@@ -134,9 +154,11 @@ function setupSmoothScroll() {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
       if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+        const navHeight = document.querySelector('.navbar').offsetHeight;
+        const targetPosition = target.offsetTop - navHeight;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
         });
       }
     });
@@ -148,7 +170,6 @@ function setupThemeToggle() {
   const currentTheme = localStorage.getItem('theme') || 'dark';
 
   document.documentElement.setAttribute('data-theme', currentTheme);
-
   updateThemeIcon(currentTheme);
 
   themeToggle.addEventListener('click', () => {
@@ -180,24 +201,32 @@ function updateThemeIcon(theme) {
 function setupScrollAnimations() {
   const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -100px 0px'
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
+        entry.target.classList.add('visible');
       }
     });
   }, observerOptions);
 
-  const animatedElements = document.querySelectorAll('.section-block, .project-card, .skill-item');
+  const animatedElements = document.querySelectorAll('.section-block');
   animatedElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
     observer.observe(el);
+  });
+}
+
+function setupNavbarScroll() {
+  const navbar = document.querySelector('.navbar');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
   });
 }
 
@@ -206,13 +235,11 @@ function addHoverEffects() {
 
   cards.forEach(card => {
     card.addEventListener('mouseenter', () => {
-      card.style.transform = card.classList.contains('skill-item')
-        ? 'translateY(-4px) scale(1.02)'
-        : 'translateY(-12px) scale(1.02)';
+      card.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
     });
 
     card.addEventListener('mouseleave', () => {
-      card.style.transform = 'translateY(0) scale(1)';
+      card.style.transition = 'all 0.4s ease';
     });
   });
 }
@@ -225,8 +252,33 @@ function setupParallaxEffect() {
     parallaxElements.forEach(element => {
       const speed = 0.5;
       element.style.transform = `translateX(-50%) translateY(${scrolled * speed}px)`;
+      element.style.opacity = Math.max(0, 1 - scrolled / 500);
     });
   });
+}
+
+function setupCursorEffect() {
+  let mouseX = 0;
+  let mouseY = 0;
+  let cursorX = 0;
+  let cursorY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animateCursor() {
+    const diffX = mouseX - cursorX;
+    const diffY = mouseY - cursorY;
+
+    cursorX += diffX * 0.1;
+    cursorY += diffY * 0.1;
+
+    requestAnimationFrame(animateCursor);
+  }
+
+  animateCursor();
 }
 
 function initializePortfolio() {
@@ -235,6 +287,7 @@ function initializePortfolio() {
   setupSmoothScroll();
   setupThemeToggle();
   setupScrollAnimations();
+  setupNavbarScroll();
   setupParallaxEffect();
 
   setTimeout(() => {
