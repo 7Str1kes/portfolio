@@ -1,0 +1,198 @@
+{
+  "es": {
+    "nav": {
+      "about": "Sobre mí",
+      "experience": "Experiencia",
+      "projects": "Proyectos",
+      "contact": "Contacto",
+      "themeToggle": "Cambiar tema"
+    },
+    "header": {
+      "greeting": "Hola, soy",
+      "subtitle": "Desarrollador especializado en Plugins/Mods de Minecraft, Bots de Discord y Desarrollo Web",
+      "email": "Email",
+      "discord": "Discord",
+      "github": "GitHub"
+    },
+    "about": {
+      "title": "Sobre mí",
+      "paragraph1": "Me llamo <strong>Santiago</strong>, pero me conocen como <strong>Strikes</strong> o <strong>7Str1kes</strong>. Soy un apasionado desarrollador con más de 3 años de experiencia.",
+      "paragraph2": "Mi especialidad incluye <strong>Java para plugins de Minecraft</strong>, <strong>JavaScript/Node.js para bots de Discord</strong> y <strong>desarrollo web frontend</strong>. Constantemente estoy aprendiendo nuevas tecnologías y mejorando mis habilidades.",
+      "paragraph3": "Cuando no estoy programando, me gusta participar en comunidades de desarrollo, ayudar a otros programadores y jugar Minecraft para probar mis propias creaciones.",
+      "skillsTitle": "Habilidades técnicas"
+    },
+    "experience": {
+      "title": "Experiencia",
+      "widowNetwork": {
+        "title": "Widow Network",
+        "description": "Responsable del desarrollo de bots y varios plugins para el servidor. También lideré el equipo de staff y fui organizador principal de los eventos."
+      },
+      "waterMC": {
+        "title": "WaterMC",
+        "description": "Desarrollador de bots personalizados para Discord, enfocados en una network de Minecraft."
+      }
+    },
+    "projects": {
+      "title": "Proyectos Destacados",
+      "filters": {
+        "all": "Todos",
+        "bots": "Bots",
+        "plugins": "Plugins",
+        "webs": "Web"
+      },
+      "labels": {
+        "bot": "Bot",
+        "plugin": "Plugin",
+        "web": "Web"
+      },
+      "viewOnGithub": "Ver en GitHub",
+      "allProjects": "Ver todos mis proyectos en GitHub",
+      "items": {
+        "staffBot": {
+          "name": "StaffBot",
+          "description": "Bot completo para gestionar el equipo de staff en una network de Minecraft. Incluye comandos administrativos, control de roles y logs detallados."
+        },
+        "echoGiveaways": {
+          "name": "EchoGiveaways",
+          "description": "Bot de sorteos para Discord con soporte avanzado, múltiples tipos de sorteos y gestión automatizada de participantes."
+        },
+        "staffPunishment": {
+          "name": "StaffPunishment",
+          "description": "Sistema fácil para sancionar usuarios mediante comandos y selección rápida."
+        },
+        "serverMonitor": {
+          "name": "ServerMonitor",
+          "description": "Plugin BungeeCord para monitorizar servidores en tiempo real."
+        },
+        "echoLores": {
+          "name": "EchoLores",
+          "description": "Sistema para gestionar y personalizar los lore de ítems dentro del servidor."
+        },
+        "destinoRP": {
+          "name": "DestinoRP",
+          "description": "Web para un servidor FiveM roleplay. Incluye información del servidor y foro de comunidad. Hecha con HTML, CSS y JS puro."
+        },
+        "portfolio": {
+          "name": "Portafolio Personal",
+          "description": "Portafolio en modo oscuro con diseño moderno, animaciones suaves y secciones interactivas. Desarrollado con HTML, CSS y JS."
+        },
+        "notesApp": {
+          "name": "Notes App",
+          "description": "Web sencilla para tomar notas rápidas, con interfaz minimalista y guardado local."
+        }
+      }
+    },
+    "contact": {
+      "title": "¿Quieres un servicio personalizado?",
+      "description": "Tengo comisiones abiertas para desarrollo de plugins, bots o páginas web. Si quieres algo a medida, <strong>no dudes en contactarme</strong>.",
+      "button": "Contactar por Discord"
+    },
+    "footer": {
+      "contactTitle": "Contacto",
+      "madeWith": "Hecho con",
+      "copyright": "Todos los derechos reservados"
+    },
+    "errors": {
+      "experienceLoad": "No se pudo cargar la información de experiencia.",
+      "projectsLoad": "No se pudo cargar la información de proyectos."
+    }
+  },
+  "en": {
+    "nav": {
+      "about": "About Me",
+      "experience": "Experience",
+      "projects": "Projects",
+      "contact": "Contact",
+      "themeToggle": "Toggle theme"
+    },
+    "header": {
+      "greeting": "Hi, I'm",
+      "subtitle": "Developer specialized in Minecraft Plugins/Mods, Discord Bots, and Web Development",
+      "email": "Email",
+      "discord": "Discord",
+      "github": "GitHub"
+    },
+    "about": {
+      "title": "About Me",
+      "paragraph1": "My name is <strong>Santiago</strong>, but I'm known as <strong>Strikes</strong> or <strong>7Str1kes</strong>. I'm a passionate developer with over 3 years of experience.",
+      "paragraph2": "My specialty includes <strong>Java for Minecraft plugins</strong>, <strong>JavaScript/Node.js for Discord bots</strong>, and <strong>frontend web development</strong>. I'm constantly learning new technologies and improving my skills.",
+      "paragraph3": "When I'm not coding, I enjoy participating in development communities, helping other programmers, and playing Minecraft to test my own creations.",
+      "skillsTitle": "Technical Skills"
+    },
+    "experience": {
+      "title": "Experience",
+      "widowNetwork": {
+        "title": "Widow Network",
+        "description": "Responsible for bot development and various plugins for the server. Also led the staff team and was the main event organizer."
+      },
+      "waterMC": {
+        "title": "WaterMC",
+        "description": "Developer of custom Discord bots focused on a Minecraft network."
+      }
+    },
+    "projects": {
+      "title": "Featured Projects",
+      "filters": {
+        "all": "All",
+        "bots": "Bots",
+        "plugins": "Plugins",
+        "webs": "Web"
+      },
+      "labels": {
+        "bot": "Bot",
+        "plugin": "Plugin",
+        "web": "Web"
+      },
+      "viewOnGithub": "View on GitHub",
+      "allProjects": "View all my projects on GitHub",
+      "items": {
+        "staffBot": {
+          "name": "StaffBot",
+          "description": "Complete bot to manage the staff team on a Minecraft network. Includes administrative commands, role control, and detailed logs."
+        },
+        "echoGiveaways": {
+          "name": "EchoGiveaways",
+          "description": "Discord giveaway bot with advanced support, multiple giveaway types, and automated participant management."
+        },
+        "staffPunishment": {
+          "name": "StaffPunishment",
+          "description": "Easy system to punish users through commands and quick selection."
+        },
+        "serverMonitor": {
+          "name": "ServerMonitor",
+          "description": "BungeeCord plugin to monitor servers in real-time."
+        },
+        "echoLores": {
+          "name": "EchoLores",
+          "description": "System to manage and customize item lore within the server."
+        },
+        "destinoRP": {
+          "name": "DestinoRP",
+          "description": "Website for a FiveM roleplay server. Includes server information and community forum. Made with pure HTML, CSS, and JS."
+        },
+        "portfolio": {
+          "name": "Personal Portfolio",
+          "description": "Dark mode portfolio with modern design, smooth animations, and interactive sections. Developed with HTML, CSS, and JS."
+        },
+        "notesApp": {
+          "name": "Notes App",
+          "description": "Simple web app to take quick notes, with a minimalist interface and local storage."
+        }
+      }
+    },
+    "contact": {
+      "title": "Want a custom service?",
+      "description": "I have open commissions for plugin, bot, or website development. If you want something custom-made, <strong>don't hesitate to contact me</strong>.",
+      "button": "Contact via Discord"
+    },
+    "footer": {
+      "contactTitle": "Contact",
+      "madeWith": "Made with",
+      "copyright": "All rights reserved"
+    },
+    "errors": {
+      "experienceLoad": "Could not load experience information.",
+      "projectsLoad": "Could not load projects information."
+    }
+  }
+}

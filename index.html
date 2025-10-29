@@ -40,27 +40,32 @@
         <span class="logo-text">7Str1kes</span>
       </div>
       <div class="nav-links">
-        <a href="#sobre-mi" class="nav-link">Sobre mí</a>
-        <a href="#experiencia" class="nav-link">Experiencia</a>
-        <a href="#proyectos" class="nav-link">Proyectos</a>
-        <a href="#servicios" class="nav-link">Contacto</a>
+        <a href="#sobre-mi" class="nav-link" data-i18n="nav.about">Sobre mí</a>
+        <a href="#experiencia" class="nav-link" data-i18n="nav.experience">Experiencia</a>
+        <a href="#proyectos" class="nav-link" data-i18n="nav.projects">Proyectos</a>
+        <a href="#servicios" class="nav-link" data-i18n="nav.contact">Contacto</a>
       </div>
-      <button id="theme-toggle" aria-label="Cambiar tema">
-        <i class="fas fa-moon"></i>
-      </button>
+      <div class="nav-controls">
+        <button id="language-toggle" aria-label="Cambiar idioma">
+          <span class="lang-text">ES</span>
+        </button>
+        <button id="theme-toggle" aria-label="Cambiar tema">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
     </div>
   </nav>
 
   <header>
     <div class="header-content">
       <div class="header-text">
-        <h1>Hola, soy <span class="highlight">7Str1kes</span></h1>
-        <p class="subtitle">Desarrollador especializado en Plugins/Mods de Minecraft, Bots de Discord y Desarrollo Web
+        <h1><span data-i18n="header.greeting">Hola, soy</span> <span class="highlight">7Str1kes</span></h1>
+        <p class="subtitle" data-i18n="header.subtitle">Desarrollador especializado en Plugins/Mods de Minecraft, Bots de Discord y Desarrollo Web
         </p>
         <div class="social-links">
-          <a href="mailto:myfuncdev@gmail.com" class="social-btn"><i class="fas fa-envelope"></i> Email</a>
-          <a href="https://discord.gg/xnj9GPDTfZ" class="social-btn discord"><i class="fab fa-discord"></i> Discord</a>
-          <a href="https://github.com/7Str1kes" class="social-btn github"><i class="fab fa-github"></i> GitHub</a>
+          <a href="mailto:myfuncdev@gmail.com" class="social-btn"><i class="fas fa-envelope"></i> <span data-i18n="header.email">Email</span></a>
+          <a href="https://discord.gg/xnj9GPDTfZ" class="social-btn discord"><i class="fab fa-discord"></i> <span data-i18n="header.discord">Discord</span></a>
+          <a href="https://github.com/7Str1kes" class="social-btn github"><i class="fab fa-github"></i> <span data-i18n="header.github">GitHub</span></a>
         </div>
       </div>
     </div>
@@ -71,27 +76,27 @@
 
   <main>
     <section id="sobre-mi" class="section-block">
-      <h2><i class="fas fa-user"></i> Sobre mí</h2>
+      <h2><i class="fas fa-user"></i> <span data-i18n="about.title">Sobre mí</span></h2>
       <div class="about-content">
         <div class="about-text">
-          <p>
+          <p data-i18n-html="about.paragraph1">
             Me llamo <strong>Santiago</strong>, pero me conocen como <strong>Strikes</strong> o
             <strong>7Str1kes</strong>.
             Soy un apasionado desarrollador con más de 3 años de experiencia.
           </p>
-          <p>
+          <p data-i18n-html="about.paragraph2">
             Mi especialidad incluye <strong>Java para plugins de Minecraft</strong>, <strong>JavaScript/Node.js para
               bots de Discord</strong>
             y <strong>desarrollo web frontend</strong>. Constantemente estoy aprendiendo nuevas tecnologías y mejorando
             mis habilidades.
           </p>
-          <p>
+          <p data-i18n-html="about.paragraph3">
             Cuando no estoy programando, me gusta participar en comunidades de desarrollo, ayudar a otros programadores
             y jugar Minecraft para probar mis propias creaciones.
           </p>
         </div>
         <div class="skills">
-          <h3>Habilidades técnicas</h3>
+          <h3 data-i18n="about.skillsTitle">Habilidades técnicas</h3>
           <div class="skills-grid">
             <div class="skill-item"><i class="fab fa-java"></i> Java</div>
             <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
@@ -107,27 +112,27 @@
     </section>
 
     <section id="experiencia" class="section-block">
-      <h2><i class="fas fa-briefcase"></i> Experiencia</h2>
+      <h2><i class="fas fa-briefcase"></i> <span data-i18n="experience.title">Experiencia</span></h2>
       <div class="timeline-container">
         <div id="experience-container" class="timeline"></div>
       </div>
     </section>
 
     <section id="proyectos" class="section-block">
-      <h2><i class="fas fa-code"></i> Proyectos Destacados</h2>
+      <h2><i class="fas fa-code"></i> <span data-i18n="projects.title">Proyectos Destacados</span></h2>
 
       <div class="project-filters">
         <button class="filter-btn active" data-filter="all">
-          <i class="fas fa-th"></i> Todos
+          <i class="fas fa-th"></i> <span data-i18n="projects.filters.all">Todos</span>
         </button>
         <button class="filter-btn" data-filter="bots">
-          <i class="fab fa-discord"></i> Bots
+          <i class="fab fa-discord"></i> <span data-i18n="projects.filters.bots">Bots</span>
         </button>
         <button class="filter-btn" data-filter="plugins">
-          <i class="fas fa-cube"></i> Plugins
+          <i class="fas fa-cube"></i> <span data-i18n="projects.filters.plugins">Plugins</span>
         </button>
         <button class="filter-btn" data-filter="webs">
-          <i class="fas fa-globe"></i> Web
+          <i class="fas fa-globe"></i> <span data-i18n="projects.filters.webs">Web</span>
         </button>
       </div>
 
@@ -135,33 +140,32 @@
 
       <div class="github-cta">
         <a href="https://github.com/7Str1kes?tab=repositories" class="github-btn">
-          <i class="fab fa-github"></i> Ver todos mis proyectos en GitHub
+          <i class="fab fa-github"></i> <span data-i18n="projects.allProjects">Ver todos mis proyectos en GitHub</span>
         </a>
       </div>
     </section>
   </main>
 
   <section id="servicios" class="section-block contact-me">
-    <h2><i class="fas fa-handshake"></i> ¿Quieres un servicio personalizado?</h2>
-    <p>
+    <h2><i class="fas fa-handshake"></i> <span data-i18n="contact.title">¿Quieres un servicio personalizado?</span></h2>
+    <p data-i18n-html="contact.description">
       Tengo comisiones abiertas para desarrollo de plugins, bots o páginas web.
       Si quieres algo a medida, <strong>no dudes en contactarme</strong>.
     </p>
-    <a href="https://discord.gg/xnj9GPDTfZ" class="social-btn discord"><i class="fab fa-discord"></i> Contactar por
-      Discord</a>
+    <a href="https://discord.gg/xnj9GPDTfZ" class="social-btn discord"><i class="fab fa-discord"></i> <span data-i18n="contact.button">Contactar por Discord</span></a>
   </section>
 
   <footer>
     <div class="footer-content">
       <div class="contact-info">
-        <h3>Contacto</h3>
+        <h3 data-i18n="footer.contactTitle">Contacto</h3>
         <p><i class="fas fa-envelope"></i> <a href="mailto:myfuncdev@gmail.com">myfuncdev@gmail.com</a></p>
         <p><i class="fab fa-discord"></i> 7str1kes</p>
         <p><i class="fab fa-github"></i> <a href="https://github.com/7Str1kes">GitHub</a></p>
       </div>
       <div class="copyright">
-        <p>Hecho con <i class="fas fa-heart"></i> por 7Str1kes</p>
-        <p class="small">© 2025 - Todos los derechos reservados</p>
+        <p><span data-i18n="footer.madeWith">Hecho con</span> <i class="fas fa-heart"></i> <span>por 7Str1kes</span></p>
+        <p class="small">© 2025 - <span data-i18n="footer.copyright">Todos los derechos reservados</span></p>
       </div>
     </div>
   </footer>

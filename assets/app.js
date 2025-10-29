@@ -1,3 +1,64 @@
+let currentLanguage = 'es';
+let translations = {};
+
+async function loadTranslations() {
+  try {
+    const response = await fetch('./data/translations.json');
+    if (!response.ok) throw new Error('Error loading translations');
+    translations = await response.json();
+    currentLanguage = localStorage.getItem('language') || 'es';
+  } catch (error) {
+    console.error('Error loading translations:', error);
+    translations = { es: {}, en: {} };
+  }
+}
+
+function translateElement(element) {
+  const key = element.getAttribute('data-i18n');
+  const htmlKey = element.getAttribute('data-i18n-html');
+
+  if (key && translations[currentLanguage]) {
+    const keys = key.split('.');
+    let value = translations[currentLanguage];
+
+    for (const k of keys) {
+      value = value?.[k];
+    }
+
+    if (value) {
+      element.textContent = value;
+    }
+  }
+
+  if (htmlKey && translations[currentLanguage]) {
+    const keys = htmlKey.split('.');
+    let value = translations[currentLanguage];
+
+    for (const k of keys) {
+      value = value?.[k];
+    }
+
+    if (value) {
+      element.innerHTML = value;
+    }
+  }
+}
+
+function updatePageLanguage() {
+  document.querySelectorAll('[data-i18n]').forEach(translateElement);
+  document.querySelectorAll('[data-i18n-html]').forEach(translateElement);
+
+  document.documentElement.setAttribute('lang', currentLanguage);
+
+  loadExperience();
+  loadProjects();
+
+  const langText = document.querySelector('#language-toggle .lang-text');
+  if (langText) {
+    langText.textContent = currentLanguage.toUpperCase();
+  }
+}
+
 async function loadExperience() {
   try {
     const response = await fetch('./data/experience.json');
@@ -12,12 +73,16 @@ async function loadExperience() {
     experienceData.forEach((exp, index) => {
       const div = document.createElement('div');
       div.classList.add('timeline-item');
+
+      const experienceKey = exp.title.toLowerCase().replace(/\s+/g, '');
+      const translatedDescription = translations[currentLanguage]?.experience?.[experienceKey]?.description || exp.description;
+
       div.innerHTML = `
         <div class="exp-header">
           <h3 class="exp-title">${exp.title}</h3>
           <span class="exp-years">${exp.years}</span>
         </div>
-        <p class="exp-description">${exp.description}</p>
+        <p class="exp-description">${translatedDescription}</p>
       `;
       div.style.animationDelay = `${index * 0.2}s`;
       container.appendChild(div);
@@ -25,10 +90,11 @@ async function loadExperience() {
   } catch (error) {
     console.error('Error al cargar experiencia:', error);
     const container = document.getElementById('experience-container');
+    const errorMsg = translations[currentLanguage]?.errors?.experienceLoad || 'No se pudo cargar la información de experiencia.';
     container.innerHTML = `
       <div class="error-card">
         <i class="fas fa-exclamation-triangle"></i>
-        <p>No se pudo cargar la información de experiencia.</p>
+        <p>${errorMsg}</p>
       </div>
     `;
   }
@@ -58,10 +124,11 @@ async function loadProjects() {
   } catch (error) {
     console.error('Error al cargar proyectos:', error);
     const container = document.getElementById('projects-grid');
+    const errorMsg = translations[currentLanguage]?.errors?.projectsLoad || 'No se pudo cargar la información de proyectos.';
     container.innerHTML = `
       <div class="error-card">
         <i class="fas fa-exclamation-triangle"></i>
-        <p>No se pudo cargar la información de proyectos.</p>
+        <p>${errorMsg}</p>
       </div>
     `;
   }
@@ -73,11 +140,16 @@ function createProjectCard(project, index) {
   card.setAttribute('data-type', project.type);
   card.style.animationDelay = `${index * 0.1}s`;
 
-  const typeLabels = {
+  const typeLabels = translations[currentLanguage]?.projects?.labels || {
     bots: 'Bot',
     plugins: 'Plugin',
     webs: 'Web'
   };
+
+  const projectKey = project.name.toLowerCase().replace(/\s+/g, '');
+  const translatedName = translations[currentLanguage]?.projects?.items?.[projectKey]?.name || project.name;
+  const translatedDescription = translations[currentLanguage]?.projects?.items?.[projectKey]?.description || project.description;
+  const viewOnGithub = translations[currentLanguage]?.projects?.viewOnGithub || 'Ver en GitHub';
 
   card.innerHTML = `
     <div class="project-image">
@@ -85,14 +157,14 @@ function createProjectCard(project, index) {
     </div>
     <div class="project-content">
       <div class="project-header">
-        <h3 class="project-title">${project.name}</h3>
+        <h3 class="project-title">${translatedName}</h3>
         <span class="project-type ${project.type}">${typeLabels[project.type]}</span>
       </div>
-      <p class="project-description">${project.description}</p>
+      <p class="project-description">${translatedDescription}</p>
       ${project.github ? `
         <div class="project-footer">
           <a href="${project.github}" target="_blank" class="project-link">
-            Ver en GitHub <i class="fas fa-external-link-alt"></i>
+            ${viewOnGithub} <i class="fas fa-external-link-alt"></i>
           </a>
         </div>
       ` : ''}
@@ -153,6 +225,21 @@ function setupSmoothScroll() {
         });
       }
     });
+  });
+}
+
+function setupLanguageToggle() {
+  const languageToggle = document.getElementById('language-toggle');
+
+  languageToggle.addEventListener('click', () => {
+    currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
+    localStorage.setItem('language', currentLanguage);
+    updatePageLanguage();
+
+    languageToggle.style.transform = 'scale(0.8) rotate(180deg)';
+    setTimeout(() => {
+      languageToggle.style.transform = 'scale(1) rotate(0deg)';
+    }, 200);
   });
 }
 
@@ -272,10 +359,11 @@ function setupCursorEffect() {
   animateCursor();
 }
 
-function initializePortfolio() {
-  loadExperience();
-  loadProjects();
+async function initializePortfolio() {
+  await loadTranslations();
+  updatePageLanguage();
   setupSmoothScroll();
+  setupLanguageToggle();
   setupThemeToggle();
   setupScrollAnimations();
   setupNavbarScroll();
