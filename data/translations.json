@@ -41,9 +41,9 @@
         "webs": "Web"
       },
       "labels": {
-        "bot": "Bot",
-        "plugin": "Plugin",
-        "web": "Web"
+        "bots": "Bot",
+        "plugins": "Plugin",
+        "webs": "Web"
       },
       "viewOnGithub": "Ver en GitHub",
       "allProjects": "Ver todos mis proyectos en GitHub",
@@ -139,9 +139,9 @@
         "webs": "Web"
       },
       "labels": {
-        "bot": "Bot",
-        "plugin": "Plugin",
-        "web": "Web"
+        "bots": "Bot",
+        "plugins": "Plugin",
+        "webs": "Web"
       },
       "viewOnGithub": "View on GitHub",
       "allProjects": "View all my projects on GitHub",
