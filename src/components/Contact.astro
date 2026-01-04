@@ -19,21 +19,32 @@
             </div>
 
             <p class="text-lg text-zinc-300 leading-relaxed max-w-2xl mx-auto">
-                Si tienes un proyecto en mente o necesitas ayuda con algo, no dudes en contactarme. Estoy disponible en Discord.
+                Si tienes un proyecto en mente o necesitas ayuda con algo, no dudes en contactarme. Estoy disponible por Discord y email.
             </p>
 
-            <div class="flex justify-center pt-4">
+            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
                 <button
                     id="discord-copy-btn"
-                    class="group/btn relative bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-violet-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 hover:scale-105 overflow-hidden flex items-center gap-3"
+                    class="group/btn relative bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-violet-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 hover:scale-105 overflow-hidden flex items-center justify-center gap-3 cursor-pointer"
                     title="Haz clic para copiar el nombre de usuario"
                 >
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-6 h-6 transition-opacity" id="discord-icon" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
                     </svg>
-                    <span id="discord-username" class="relative z-10">7str1kes</span>
-                    <span id="discord-copy-feedback" class="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-purple-400 to-violet-600 opacity-0 transition-opacity duration-300 rounded-xl">¡Copiado!</span>
-                    <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-violet-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                    <span id="discord-username" class="relative z-10 transition-opacity">7str1kes</span>
+                    <span id="discord-copy-feedback" class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 pointer-events-none">¡Copiado!</span>
+                </button>
+
+                <button
+                    id="email-copy-btn"
+                    class="group/btn relative bg-zinc-800/80 backdrop-blur-sm hover:bg-zinc-700/80 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 border border-zinc-600/50 hover:border-purple-400/60 hover:scale-105 overflow-hidden flex items-center justify-center gap-3 cursor-pointer"
+                    title="Haz clic para copiar el email"
+                >
+                    <svg class="w-6 h-6 group-hover/btn:text-purple-400 transition-all" id="email-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span id="email-address" class="relative z-10 group-hover/btn:text-purple-400 transition-all">myfuncdev@gmail.com</span>
+                    <span id="email-copy-feedback" class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 text-purple-300 pointer-events-none">¡Copiado!</span>
                 </button>
             </div>
         </div>
@@ -71,19 +82,53 @@
 <script>
     const discordBtn = document.getElementById('discord-copy-btn');
     const discordUsername = document.getElementById('discord-username');
+    const discordIcon = document.getElementById('discord-icon');
     const discordFeedback = document.getElementById('discord-copy-feedback');
 
-    if (discordBtn && discordUsername && discordFeedback) {
+    if (discordBtn && discordUsername && discordIcon && discordFeedback) {
         discordBtn.addEventListener('click', async () => {
             const username = discordUsername.textContent || '';
 
             try {
                 await navigator.clipboard.writeText(username);
 
+                discordUsername.style.opacity = '0';
+                discordIcon.style.opacity = '0';
+
                 discordFeedback.style.opacity = '1';
 
                 setTimeout(() => {
                     discordFeedback.style.opacity = '0';
+                    discordUsername.style.opacity = '1';
+                    discordIcon.style.opacity = '1';
+                }, 2000);
+            } catch (err) {
+                console.error('Error al copiar:', err);
+            }
+        });
+    }
+
+    const emailBtn = document.getElementById('email-copy-btn');
+    const emailAddress = document.getElementById('email-address');
+    const emailIcon = document.getElementById('email-icon');
+    const emailFeedback = document.getElementById('email-copy-feedback');
+
+    if (emailBtn && emailAddress && emailIcon && emailFeedback) {
+        emailBtn.addEventListener('click', async () => {
+            const email = emailAddress.textContent || '';
+
+            try {
+                await navigator.clipboard.writeText(email);
+
+                emailAddress.style.opacity = '0';
+                emailIcon.style.opacity = '0';
+
+                emailFeedback.style.opacity = '1';
+
+                setTimeout(() => {
+                    emailFeedback.style.opacity = '0';
+                    emailAddress.style.opacity = '1';
+                    emailIcon.style.opacity = '1';
                 }, 2000);
             } catch (err) {
                 console.error('Error al copiar:', err);
