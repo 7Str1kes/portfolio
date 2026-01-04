@@ -1,10 +1,10 @@
 ---
 const personaAlt = "7Str1kes"
 
-const initialAge = 2023;
+const initialYear = 2023;
 const currentYear = new Date().getFullYear();
 
-const experienceYears = currentYear - initialAge;
+const experienceYears = currentYear - initialYear;
 ---
 
 <article class="flex flex-col md:flex-row items-center gap-16 mt-8">
@@ -35,10 +35,12 @@ const experienceYears = currentYear - initialAge;
             <div class="absolute -inset-1 bg-gradient-to-r from-purple-500 via-violet-400 to-purple-600 rounded-2xl blur-2xl opacity-25 group-hover:opacity-40 transition-opacity duration-500 animate-pulse-slow"></div>
             <div class="absolute inset-0 bg-gradient-to-r from-purple-500 via-violet-400 to-purple-600 rounded-2xl blur-3xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
             <img
-                width="300"
-                height="300"
                 src="/head-3d.webp"
                 alt={personaAlt}
+                width="300"
+                height="300"
+                loading="lazy"
+                decoding="async"
                 class="relative w-72 h-72 object-cover rounded-2xl border-2 border-purple-400/20 shadow-2xl hover:scale-105 group-hover:border-purple-400/40 transition-all duration-500 group-hover:rotate-1"
             />
         </div>
