@@ -1,0 +1,103 @@
+---
+const skillCategories = [
+    {
+        category: "Backend & Plugins",
+        icon: "⚙️",
+        color: "purple",
+        skills: [
+            { name: "Java", level: 95 },
+            { name: "Node.js", level: 90 },
+            { name: "Python", level: 75 }
+        ]
+    },
+    {
+        category: "Frontend & Web",
+        icon: "🎨",
+        color: "purple",
+        skills: [
+            { name: "JavaScript", level: 92 },
+            { name: "Astro", level: 85 },
+            { name: "Next.js", level: 88 },
+            { name: "Vue", level: 80 },
+            { name: "Tailwind CSS", level: 95 }
+        ]
+    },
+    {
+        category: "Bases de Datos",
+        icon: "🗄️",
+        color: "purple",
+        skills: [
+            { name: "MySQL", level: 85 },
+            { name: "MongoDB", level: 82 },
+            { name: "SQLite", level: 88 }
+        ]
+    },
+    {
+        category: "Herramientas",
+        icon: "🔧",
+        color: "purple",
+        skills: [
+            { name: "Discord.js", level: 93 },
+            { name: "Vite", level: 85 },
+            { name: "Git", level: 90 }
+        ]
+    }
+]
+---
+
+<div class="mt-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {skillCategories.map((category) => (
+            <div class={`group relative bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm border border-${category.color}-500/20 rounded-2xl p-6 hover:border-${category.color}-500/40 transition-all duration-500 shadow-xl hover:shadow-${category.color}-500/10 overflow-hidden`}>
+                <div class={`absolute inset-0 bg-gradient-to-r from-${category.color}-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+
+                <div class="relative flex items-center gap-3 mb-6">
+                    <div class={`w-12 h-12 rounded-xl bg-gradient-to-br from-${category.color}-500/10 to-${category.color}-600/10 border border-${category.color}-500/20 flex items-center justify-center text-2xl group-hover:scale-110 group-hover:border-${category.color}-500/40 transition-all duration-300`}>
+                        {category.icon}
+                    </div>
+                    <h3 class={`text-xl font-bold text-white group-hover:text-${category.color}-400 transition-colors duration-300`}>
+                        {category.category}
+                    </h3>
+                </div>
+
+                <div class="relative space-y-4">
+                    {category.skills.map((skill) => (
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-zinc-300 font-medium text-sm">{skill.name}</span>
+                                <span class={`text-${category.color}-400 font-bold text-sm`}>{skill.level}%</span>
+                            </div>
+                            <div class="w-full bg-zinc-800/60 rounded-full h-2 overflow-hidden">
+                                <div
+                                    class={`h-full bg-gradient-to-r from-${category.color}-500 to-${category.color}-600 rounded-full transition-all duration-1000 ease-out hover:shadow-lg hover:shadow-${category.color}-500/50`}
+                                    style={`width: ${skill.level}%`}
+                                ></div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        ))}
+    </div>
+
+    <div class="mt-8 text-center">
+        <div class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500/10 to-violet-500/10 border border-purple-500/30 rounded-full">
+            <svg class="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
+            </svg>
+            <span class="text-purple-300 font-medium text-sm">Siempre aprendiendo y mejorando</span>
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes slide-in {
+        from {
+            width: 0;
+        }
+    }
+
+    [style*="width"] {
+        animation: slide-in 1s ease-out;
+    }
+</style>
