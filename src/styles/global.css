@@ -56,12 +56,54 @@ body::before {
     animation: ambient-glow 8s ease-in-out infinite;
 }
 
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: var(--gold-primary);
-  border-radius: 50%;
-  opacity: 0.3;
-  animation: float-particle 15s infinite;
+/* Scroll animations */
+[data-scroll-animate] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-scroll-animate].animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+[data-scroll-animate="fade-up"] {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+[data-scroll-animate="fade-up"].animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+[data-scroll-animate="fade-left"] {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+[data-scroll-animate="fade-left"].animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+[data-scroll-animate="fade-right"] {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+[data-scroll-animate="fade-right"].animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+[data-scroll-animate="scale"] {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+[data-scroll-animate="scale"].animate-in {
+    opacity: 1;
+    transform: scale(1);
 }

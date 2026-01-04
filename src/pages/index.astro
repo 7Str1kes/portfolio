@@ -24,7 +24,7 @@ import Contact from "../components/Contact.astro";
 
 		<div class="space-y-32 md:space-y-40 pb-20">
 			<!-- About Me -->
-			<SectionContainer id="about" class="scroll-mt-20">
+			<SectionContainer id="about" class="scroll-mt-20" data-scroll-animate="fade-up">
 				<TitleSection>
 					Sobre Mí
 				</TitleSection>
@@ -32,7 +32,7 @@ import Contact from "../components/Contact.astro";
 			</SectionContainer>
 
 			<!-- Skills -->
-			<SectionContainer id="skills" class="scroll-mt-20">
+			<SectionContainer id="skills" class="scroll-mt-20" data-scroll-animate="fade-up">
 				<TitleSection>
 					Tecnologías
 				</TitleSection>
@@ -40,7 +40,7 @@ import Contact from "../components/Contact.astro";
 			</SectionContainer>
 
 			<!-- GL Studios -->
-			<SectionContainer id="glstudios" class="scroll-mt-20">
+			<SectionContainer id="glstudios" class="scroll-mt-20" data-scroll-animate="fade-up">
 				<TitleSection>
 					GL Studios
 				</TitleSection>
@@ -48,7 +48,7 @@ import Contact from "../components/Contact.astro";
 			</SectionContainer>
 
 			<!-- Contact -->
-			<SectionContainer id="contact" class="scroll-mt-20">
+			<SectionContainer id="contact" class="scroll-mt-20" data-scroll-animate="scale">
 				<TitleSection>
 					Contacto
 				</TitleSection>
@@ -57,3 +57,8 @@ import Contact from "../components/Contact.astro";
 		</div>
 	</main>
 </Layout>
+
+<script>
+	import { initScrollAnimations } from '../scripts/scrollAnimations';
+	initScrollAnimations();
+</script>

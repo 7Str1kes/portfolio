@@ -1,0 +1,425 @@
+---
+import "../styles/global.css";
+import Layout from '../layouts/Layout.astro';
+import SectionContainer from "../components/SectionContainer.astro";
+
+const projects = [
+    {
+        id: 1,
+        title: "GoldenLyons Network Website",
+        description: "Sitio web de GoldenLyons Network",
+        image: "/projects/glnetwork-web.webp",
+        category: "web",
+        type: "privado",
+        technologies: ["Next.js", "Tailwind CSS", "MySQL"],
+        featured: true,
+        demoUrl: "https://web.goldenlyons.net/",
+        repoUrl: null
+    },
+    {
+        id: 2,
+        title: "Bot de Moderación Premium",
+        description: "Bot de Discord con sistema de moderación automática, tickets, verificación y logs detallados.",
+        image: "",
+        category: "discord-bot",
+        type: "privado",
+        technologies: ["Node.js", "Discord.js", "MongoDB"],
+        featured: true,
+        demoUrl: null,
+        repoUrl: null
+    },
+    {
+        id: 3,
+        title: "GL Studios Website",
+        description: "Sitio web corporativo moderno con panel de administración y sistema de tickets.",
+        image: "",
+        category: "web",
+        type: "público",
+        technologies: ["Astro", "Tailwind CSS", "TypeScript"],
+        featured: true,
+        demoUrl: "https://glstudios.dev",
+        repoUrl: null
+    },
+    {
+        id: 4,
+        title: "Sistema de Clanes",
+        description: "Plugin de clanes con territorios, guerras, alianzas y sistema de ranking.",
+        image: "",
+        category: "minecraft-plugin",
+        type: "privado",
+        technologies: ["Java", "SQLite", "Vault API"],
+        featured: false,
+        demoUrl: null,
+        repoUrl: null
+    },
+    {
+        id: 5,
+        title: "Bot de Música Premium",
+        description: "Bot de Discord para reproducción de música de alta calidad con cola personalizada.",
+        image: "",
+        category: "discord-bot",
+        type: "público",
+        technologies: ["Node.js", "Discord.js", "Lavalink"],
+        featured: false,
+        demoUrl: null,
+        repoUrl: "https://github.com/7Str1kes/music-bot"
+    },
+    {
+        id: 6,
+        title: "Dashboard de Servidor",
+        description: "Panel web para administrar servidores de Minecraft en tiempo real.",
+        image: "",
+        category: "web",
+        type: "privado",
+        technologies: ["Next.js", "React", "WebSocket", "MySQL"],
+        featured: false,
+        demoUrl: null,
+        repoUrl: null
+    }
+];
+
+const categories = [
+    { value: "all", label: "Todos", icon: "🎯" },
+    { value: "minecraft-plugin", label: "Plugins Minecraft", icon: "⚙️" },
+    { value: "discord-bot", label: "Bots Discord", icon: "🤖" },
+    { value: "web", label: "Desarrollo Web", icon: "🌐" }
+];
+
+const types = [
+    { value: "all", label: "Todos" },
+    { value: "público", label: "Público" },
+    { value: "privado", label: "Privado" }
+];
+---
+
+<Layout
+    title="Proyectos - 7Str1kes"
+    description="Explora mi portafolio de proyectos: plugins de Minecraft, bots de Discord y aplicaciones web"
+>
+    <canvas id="particles-canvas"></canvas>
+    <main class="px-4">
+        <SectionContainer class="py-24">
+            <div class="text-center mb-16" data-scroll-animate="fade-up">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    Mis <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-600">Proyectos</span>
+                </h1>
+                <p class="text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+                    Una selección de proyectos en los que he trabajado, desde plugins de Minecraft hasta aplicaciones web completas.
+                </p>
+            </div>
+
+            <div class="mb-20" data-scroll-animate="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
+                    Proyectos <span class="text-purple-400">Destacados</span>
+                </h2>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    {projects.filter(p => p.featured).map((project) => (
+                        <div class="group relative bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm border border-purple-500/30 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-500 shadow-xl hover:shadow-purple-500/20 hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                            <div class="relative h-48 bg-gradient-to-br from-purple-900/20 to-violet-900/20 overflow-hidden">
+                                {project.image ? (
+                                    <>
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            width="400"
+                                            height="192"
+                                            loading="lazy"
+                                            decoding="async"
+                                            class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-500"
+                                        />
+                                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/40 to-transparent"></div>
+                                    </>
+                                ) : (
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-6xl opacity-20">{categories.find(c => c.value === project.category)?.icon}</span>
+                                    </div>
+                                )}
+                                <div class="absolute top-3 right-3 z-10">
+                                    <span class="px-3 py-1 bg-purple-500/80 backdrop-blur-sm border border-purple-400/50 rounded-full text-xs font-bold text-white">
+                                        {project.type}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="relative p-6 space-y-4">
+                                <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
+                                    {project.title}
+                                </h3>
+                                <p class="text-zinc-300 text-sm leading-relaxed">
+                                    {project.description}
+                                </p>
+
+                                <div class="flex flex-wrap gap-2">
+                                    {project.technologies.map(tech => (
+                                        <span class="px-3 py-1 bg-zinc-800/60 border border-zinc-700/50 rounded-lg text-xs text-zinc-300">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <div class="flex gap-3 pt-2">
+                                    {project.demoUrl && (
+                                        <a
+                                            href={project.demoUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="flex-1 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-violet-700 text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300 text-center text-sm"
+                                        >
+                                            Ver Demo
+                                        </a>
+                                    )}
+                                    {project.repoUrl && (
+                                        <a
+                                            href={project.repoUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="flex-1 bg-zinc-800/80 hover:bg-zinc-700/80 text-white font-semibold px-4 py-2 rounded-lg border border-zinc-600/50 hover:border-purple-400/60 transition-all duration-300 text-center text-sm"
+                                        >
+                                            Código
+                                        </a>
+                                    )}
+                                    {!project.demoUrl && !project.repoUrl && (
+                                        <div class="flex-1 bg-zinc-800/40 text-zinc-500 font-medium px-4 py-2 rounded-lg border border-zinc-700/30 text-center text-sm">
+                                            Proyecto Privado
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div class="mb-12" data-scroll-animate="fade-up">
+                <div class="bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-6 max-w-4xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-purple-400 mb-3">Categoría</label>
+                            <div class="grid grid-cols-2 gap-2" id="category-filters">
+                                {categories.map(cat => (
+                                    <button
+                                        data-category={cat.value}
+                                        class="category-filter px-4 py-2 bg-zinc-800/60 hover:bg-purple-500/20 border border-zinc-700/50 hover:border-purple-500/50 rounded-lg text-sm text-zinc-300 hover:text-white transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                                    >
+                                        <span>{cat.icon}</span>
+                                        <span>{cat.label}</span>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-purple-400 mb-3">Tipo</label>
+                            <div class="grid grid-cols-3 gap-2" id="type-filters">
+                                {types.map(type => (
+                                    <button
+                                        data-type={type.value}
+                                        class="type-filter px-4 py-2 bg-zinc-800/60 hover:bg-purple-500/20 border border-zinc-700/50 hover:border-purple-500/50 rounded-lg text-sm text-zinc-300 hover:text-white transition-all duration-300 cursor-pointer"
+                                    >
+                                        {type.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div data-scroll-animate="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
+                    Todos los <span class="text-purple-400">Proyectos</span>
+                </h2>
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+                    {projects.map((project) => (
+                        <div
+                            class="project-card group relative bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm border border-purple-500/20 rounded-xl overflow-hidden hover:border-purple-500/40 transition-all duration-500 shadow-lg hover:shadow-purple-500/10 hover:scale-105"
+                            data-category={project.category}
+                            data-type={project.type}
+                        >
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                            <div class="relative h-40 bg-gradient-to-br from-purple-900/20 to-violet-900/20 overflow-hidden">
+                                {project.image ? (
+                                    <>
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            width="400"
+                                            height="160"
+                                            loading="lazy"
+                                            decoding="async"
+                                            class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-500"
+                                        />
+                                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/40 to-transparent"></div>
+                                    </>
+                                ) : (
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-5xl opacity-20">{categories.find(c => c.value === project.category)?.icon}</span>
+                                    </div>
+                                )}
+                                <div class="absolute top-2 right-2 z-10">
+                                    <span class="px-2 py-1 bg-purple-500/80 backdrop-blur-sm border border-purple-400/50 rounded-full text-xs font-bold text-white">
+                                        {project.type}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="relative p-5 space-y-3">
+                                <h3 class="text-lg font-bold text-white group-hover:text-purple-400 transition-colors line-clamp-1">
+                                    {project.title}
+                                </h3>
+                                <p class="text-zinc-300 text-sm leading-relaxed line-clamp-2">
+                                    {project.description}
+                                </p>
+
+                                <div class="flex flex-wrap gap-1.5">
+                                    {project.technologies.slice(0, 3).map(tech => (
+                                        <span class="px-2 py-0.5 bg-zinc-800/60 border border-zinc-700/50 rounded text-xs text-zinc-300">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <div class="flex gap-2 pt-2">
+                                    {project.demoUrl && (
+                                        <a
+                                            href={project.demoUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="flex-1 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-violet-700 text-white font-semibold px-3 py-1.5 rounded-lg transition-all duration-300 text-center text-xs"
+                                        >
+                                            Demo
+                                        </a>
+                                    )}
+                                    {project.repoUrl && (
+                                        <a
+                                            href={project.repoUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="flex-1 bg-zinc-800/80 hover:bg-zinc-700/80 text-white font-semibold px-3 py-1.5 rounded-lg border border-zinc-600/50 hover:border-purple-400/60 transition-all duration-300 text-center text-xs"
+                                        >
+                                            Repo
+                                        </a>
+                                    )}
+                                    {!project.demoUrl && !project.repoUrl && (
+                                        <div class="flex-1 bg-zinc-800/40 text-zinc-500 font-medium px-3 py-1.5 rounded-lg border border-zinc-700/30 text-center text-xs">
+                                            Privado
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <div id="no-results" class="hidden text-center py-16">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-purple-500/10 border border-purple-500/20 rounded-full mb-4">
+                        <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <p class="text-xl text-zinc-400">No se encontraron proyectos con estos filtros</p>
+                </div>
+            </div>
+        </SectionContainer>
+    </main>
+</Layout>
+
+<style>
+    #particles-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .category-filter.active,
+    .type-filter.active {
+        background: linear-gradient(to right, rgb(168 85 247), rgb(147 51 234));
+        border-color: rgb(168 85 247 / 0.5);
+        color: white;
+    }
+
+    .line-clamp-1 {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>
+
+<script>
+    import { initParticles } from '../scripts/particles';
+    import { initScrollAnimations } from '../scripts/scrollAnimations';
+
+    initParticles('particles-canvas', 50);
+    initScrollAnimations();
+
+    let currentCategory = 'all';
+    let currentType = 'all';
+
+    const categoryButtons = document.querySelectorAll('.category-filter');
+    const typeButtons = document.querySelectorAll('.type-filter');
+    const projectCards = document.querySelectorAll('.project-card');
+    const noResults = document.getElementById('no-results');
+
+    categoryButtons[0]?.classList.add('active');
+    typeButtons[0]?.classList.add('active');
+
+    function filterProjects() {
+        let visibleCount = 0;
+
+        projectCards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            const cardType = card.getAttribute('data-type');
+
+            const categoryMatch = currentCategory === 'all' || cardCategory === currentCategory;
+            const typeMatch = currentType === 'all' || cardType === currentType;
+
+            if (categoryMatch && typeMatch) {
+                card.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        if (noResults) {
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+    }
+
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            currentCategory = button.getAttribute('data-category') || 'all';
+            filterProjects();
+        });
+    });
+
+    typeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            typeButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            currentType = button.getAttribute('data-type') || 'all';
+            filterProjects();
+        });
+    });
+</script>
