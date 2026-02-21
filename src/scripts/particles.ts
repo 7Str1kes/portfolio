@@ -58,6 +58,8 @@ export class FloatingParticle {
 export function initParticles(canvasId: string, particleCount: number = 50) {
     const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
     if (!canvas) return;
+    if (canvas.dataset.particlesInit) return;
+    canvas.dataset.particlesInit = 'true';
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;

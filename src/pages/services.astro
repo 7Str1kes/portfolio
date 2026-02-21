@@ -5,115 +5,174 @@ import SectionContainer from "../components/SectionContainer.astro";
 
 const services = [
     {
-        title: "Plugins de Minecraft",
+        title: "Plugins Custom para Minecraft",
         icon: "⚙️",
-        color: "purple",
-        gradient: "from-purple-500/10 to-purple-900/10",
-        borderColor: "border-purple-500/30",
-        description: "Desarrollo personalizado de plugins en Java para servidores de Minecraft",
+        accent: "purple",
+        description: "Desarrollo plugins Java completamente a medida que transforman tu servidor con sistemas únicos, mecánicas propias e integraciones avanzadas.",
         features: [
-            "Sistemas de economía y tiendas",
-            "Misiones y logros personalizados",
-            "Clanes y facciones",
-            "Minijuegos únicos",
-            "Eventos automáticos",
-            "APIs y librerías",
-            "Optimización de rendimiento",
-            "Integración con bases de datos"
-        ]
-    },
-    {
-        title: "Bots de Discord",
-        icon: "🤖",
-        color: "violet",
-        gradient: "from-violet-500/10 to-violet-900/10",
-        borderColor: "border-violet-500/30",
-        description: "Creación de bots personalizados con Node.js y Discord.js",
-        features: [
-            "Moderación automática avanzada",
-            "Sistema de tickets y soporte",
-            "Economía y niveles",
-            "Integración con Minecraft",
-            "Comandos slash personalizados",
-            "Sistemas de verificación",
-            "Logs y estadísticas detalladas",
-            "Música y entretenimiento"
-        ]
+            "Economías, tiendas, subastas y mercados propios",
+            "Minijuegos, eventos y torneos automáticos",
+            "Clanes, facciones, rangos y sistema de permisos",
+            "Misiones, logros y progresión de jugador",
+            "GUIs interactivas y comandos personalizados",
+            "Integración con bases de datos MySQL / MongoDB",
+            "Optimización de rendimiento y compatibilidad",
+            "APIs propias e integración con otros plugins",
+        ],
+        tags: ["Java", "Spigot", "Paper", "MySQL", "MongoDB"],
     },
     {
         title: "Configuración de Servidores",
-        icon: "🔧",
-        color: "purple",
-        gradient: "from-purple-500/10 to-purple-900/10",
-        borderColor: "border-purple-500/30",
-        description: "Setup completo y optimización profesional de servidores",
+        icon: "🧩",
+        accent: "violet",
+        description: "Setup completo de servidores Minecraft de cualquier modalidad: Survival, PvP, Gens, SkyBlock, o redes multijugador con varios modos de juego.",
         features: [
-            "Configuración completa desde cero",
-            "Optimización de plugins existentes",
-            "Configuración de protecciones",
-            "Setup de bases de datos",
-            "Redes BungeeCord/Velocity",
-            "Instalación de mods",
-            "Sistemas de backup",
-            "Soporte técnico continuo"
-        ]
-    }
+            "Configuración desde cero o migración de servidor existente",
+            "Redes multijugador con BungeeCord o Velocity",
+            "Instalación, ajuste y optimización de plugins",
+            "Configuración de mundos, generadores y biomas",
+            "Protecciones y permisos",
+            "Optimización de rendimiento y estabilidad de TPS",
+            "Sistemas de backup y recuperación ante fallos",
+            "Soporte técnico durante y tras la configuración",
+        ],
+        tags: ["BungeeCord", "Velocity", "Survival", "PvP", "SkyBlock"],
+    },
+    {
+        title: "Bots de Discord Personalizados",
+        icon: "👾",
+        accent: "purple",
+        description: "Bots de Discord hechos a medida que automatizan la gestión de tu comunidad, integran sistemas externos y ofrecen una experiencia completamente propia.",
+        features: [
+            "Moderación avanzada, filtros y sistemas antispam",
+            "Tickets de soporte y flujos de atención personalizados",
+            "Economía interna, niveles y tablas de clasificación",
+            "Integración con servidores de Minecraft y APIs externas",
+            "Logs automáticos, estadísticas y dashboards",
+            "Comandos slash, menús y formularios interactivos",
+            "Sistemas de verificación y roles automáticos",
+            "Notificaciones, alertas y automatizaciones programadas",
+        ],
+        tags: ["Node.js", "Discord.js", "MongoDB", "MySQL"],
+    },
+    {
+        title: "Páginas Web",
+        icon: "🌐",
+        accent: "violet",
+        description: "Diseño y desarrollo de webs modernas, rápidas y funcionales: desde una landing page profesional hasta sistemas completos con panel propio y lógica de negocio.",
+        features: [
+            "Landing pages, portfolios y webs de presentación",
+            "Paneles de administración y dashboards a medida",
+            "Tiendas y sistemas de donación integrados",
+            "Conexión con APIs externas y servicios propios",
+            "Diseño responsive, accesible y optimizado para SEO",
+            "Sistemas complementarios para comunidades o servidores",
+            "Autenticación, sesiones y gestión de usuarios",
+            "Despliegue y configuración en producción",
+        ],
+        tags: ["Astro", "Next.js", "Vue", "Tailwind", "TypeScript"],
+    },
+    {
+        title: "Máquinas, Paneles y Servicios Linux",
+        icon: "🖥️",
+        accent: "purple",
+        description: "Instalación y configuración completa de infraestructura: desde la máquina hasta el panel de control, proxies inversos y todo lo necesario para mantener tus servicios en marcha.",
+        features: [
+            "Instalación y configuración completa de Pterodactyl",
+            "Configuración de VPS, servidores dedicados y entornos Linux",
+            "Proxies inversos con Nginx",
+            "Servicios systemd, backups automáticos y cronjobs",
+            "Redes de Minecraft, gestión de puertos y firewalls",
+            "Monitorización, alertas y logs del sistema",
+            "Soporte y mantenimiento de infraestructura continuo",
+        ],
+        tags: ["Linux", "Pterodactyl", "Nginx"],
+    },
 ];
 ---
 
 <Layout
-    title="Mis Servicios - 7Str1kes"
-    description="Servicios profesionales de desarrollo y configuración para servidores de Minecraft y Discord"
+    title="Servicios - 7Str1kes"
+    description="Servicios profesionales de desarrollo: plugins de Minecraft, bots de Discord, webs, configuración de servidores e infraestructura Linux"
 >
     <canvas id="particles-canvas"></canvas>
     <main class="px-4">
         <SectionContainer class="py-24">
+
             <div class="text-center mb-20">
                 <div class="inline-block px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-400 text-sm font-medium mb-6">
                     ✨ Soluciones Personalizadas
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                    Servicios <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-600">Profesionales</span>
+                    Servicios <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-500">Profesionales</span>
                 </h1>
                 <p class="text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-                    Desarrollo de software a medida para tu servidor o comunidad. Calidad, eficiencia y soporte garantizado.
+                    Desarrollo de software a medida para tu servidor, comunidad o negocio. Calidad, eficiencia y soporte garantizado.
                 </p>
             </div>
 
-            <div class="max-w-7xl mx-auto space-y-8">
+            <div class="max-w-5xl mx-auto space-y-8">
                 {services.map((service, index) => (
-                    <div class={`group relative bg-gradient-to-br ${service.gradient} backdrop-blur-sm border ${service.borderColor} rounded-3xl p-8 md:p-12 hover:border-${service.color}-400/50 transition-all duration-500 shadow-2xl hover:shadow-${service.color}-500/20 overflow-hidden ${index % 2 === 0 ? 'md:mr-12' : 'md:ml-12'}`}>
-                        <div class={`absolute inset-0 bg-gradient-to-br from-${service.color}-500/5 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                    <div class={`group relative backdrop-blur-sm rounded-3xl p-8 md:p-10 transition-all duration-500 shadow-2xl overflow-hidden border ${
+                        service.accent === 'purple'
+                            ? 'bg-gradient-to-br from-purple-500/8 to-zinc-900/60 border-purple-500/25 hover:border-purple-500/45 hover:shadow-purple-500/15'
+                            : 'bg-gradient-to-br from-violet-500/8 to-zinc-900/60 border-violet-500/25 hover:border-violet-500/45 hover:shadow-violet-500/15'
+                    }`}>
 
-                        <div class={`absolute -top-20 -right-20 w-64 h-64 bg-${service.color}-500/5 rounded-full blur-3xl group-hover:bg-${service.color}-500/10 transition-all duration-500`}></div>
+                        <div class={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ${
+                            service.accent === 'purple'
+                                ? 'bg-gradient-to-br from-purple-500/5 to-transparent'
+                                : 'bg-gradient-to-br from-violet-500/5 to-transparent'
+                        }`}></div>
+
+                        <div class={`absolute -top-24 -right-24 w-72 h-72 rounded-full blur-3xl opacity-40 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none ${
+                            service.accent === 'purple' ? 'bg-purple-600/10' : 'bg-violet-600/10'
+                        }`}></div>
 
                         <div class="relative grid md:grid-cols-2 gap-8 items-start">
-                            <div class="space-y-6">
+
+                            <div class="space-y-5">
                                 <div class="flex items-center gap-4">
-                                    <div class={`w-16 h-16 rounded-2xl bg-gradient-to-br from-${service.color}-500/20 to-${service.color}-600/20 border border-${service.color}-500/30 flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                                    <div class={`w-14 h-14 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 border transition-all duration-300 group-hover:scale-110 ${
+                                        service.accent === 'purple'
+                                            ? 'bg-gradient-to-br from-purple-500/15 to-purple-700/10 border-purple-500/30 group-hover:border-purple-500/60'
+                                            : 'bg-gradient-to-br from-violet-500/15 to-violet-700/10 border-violet-500/30 group-hover:border-violet-500/60'
+                                    }`}>
                                         {service.icon}
                                     </div>
-                                    <div>
-                                        <h2 class={`text-3xl md:text-4xl font-bold text-white group-hover:text-${service.color}-400 transition-colors duration-300`}>
-                                            {service.title}
-                                        </h2>
-                                    </div>
+                                    <h2 class={`text-2xl md:text-3xl font-bold text-white transition-colors duration-300 ${
+                                        service.accent === 'purple' ? 'group-hover:text-purple-300' : 'group-hover:text-violet-300'
+                                    }`}>
+                                        {service.title}
+                                    </h2>
                                 </div>
 
-                                <p class="text-lg text-zinc-300 leading-relaxed">
+                                <p class="text-zinc-300/90 leading-relaxed">
                                     {service.description}
                                 </p>
 
-                                <div class="flex items-center gap-2 pt-2">
-                                    <div class={`w-2 h-2 rounded-full bg-${service.color}-400 animate-pulse`}></div>
-                                    <span class="text-sm text-zinc-400 font-medium">Disponible ahora</span>
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    {service.tags.map(tag => (
+                                        <span class="px-2.5 py-0.5 rounded-md bg-zinc-800/80 border border-zinc-700/50 text-zinc-400 text-xs font-medium">
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <div class="flex items-center gap-2 pt-1">
+                                    <div class={`w-2 h-2 rounded-full animate-pulse ${service.accent === 'purple' ? 'bg-purple-400' : 'bg-violet-400'}`}></div>
+                                    <span class="text-sm text-zinc-400">Disponible ahora</span>
                                 </div>
                             </div>
 
-                            <div class="space-y-3">
+                            <div class="space-y-2.5">
                                 {service.features.map(feature => (
-                                    <div class={`flex items-start gap-3 p-3 rounded-xl bg-zinc-900/30 hover:bg-zinc-800/50 border border-zinc-800/50 hover:border-${service.color}-500/30 transition-all duration-300 group/item`}>
-                                        <svg class={`w-5 h-5 text-${service.color}-400 flex-shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform`} fill="currentColor" viewBox="0 0 20 20">
+                                    <div class={`flex items-start gap-3 p-3 rounded-xl bg-zinc-900/40 border border-zinc-800/50 transition-all duration-300 group/item hover:bg-zinc-800/50 ${
+                                        service.accent === 'purple'
+                                            ? 'hover:border-purple-500/30'
+                                            : 'hover:border-violet-500/30'
+                                    }`}>
+                                        <svg class={`w-4 h-4 flex-shrink-0 mt-0.5 ${service.accent === 'purple' ? 'text-purple-400' : 'text-violet-400'}`} fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                                         </svg>
                                         <span class="text-zinc-300 group-hover/item:text-white transition-colors text-sm leading-relaxed">{feature}</span>
@@ -126,36 +185,34 @@ const services = [
             </div>
 
             <div class="mt-20 text-center">
-                <div class="group relative bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm border border-purple-500/30 hover:border-purple-500/50 rounded-2xl p-10 max-w-4xl mx-auto transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                    <div class="relative space-y-6">
-                        <h2 class="text-3xl md:text-4xl font-bold text-white group-hover:text-purple-400 transition-colors duration-300">
+                <div class="group relative bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm border border-purple-500/30 hover:border-purple-500/50 rounded-2xl p-10 max-w-3xl mx-auto transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                    <div class="relative space-y-5">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white group-hover:text-purple-300 transition-colors duration-300">
                             ¿Tienes un proyecto en mente?
                         </h2>
-                        <p class="text-xl text-zinc-300 leading-relaxed max-w-2xl mx-auto">
-                            Cada proyecto es único. Contáctame para hablar sobre tus necesidades y crear una solución personalizada.
+                        <p class="text-lg text-zinc-400 leading-relaxed max-w-xl mx-auto">
+                            Cada proyecto es diferente. Contáctame para hablar sobre lo que necesitas y encontrar la mejor solución.
                         </p>
-                        <div class="flex flex-wrap gap-4 justify-center pt-4">
-                            <a href="/#contact" class="group/btn relative bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-violet-700 text-white font-semibold px-10 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 hover:scale-105 overflow-hidden flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <div class="flex flex-wrap gap-4 justify-center pt-2">
+                            <a href="/#contact" class="bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-400 hover:to-purple-500 text-white font-semibold px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:scale-[1.03] flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                                 </svg>
-                                <span class="relative z-10">Contactar</span>
-                                <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-violet-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                                Contactar
                             </a>
-                            <a href="/reviews" class="group/btn relative bg-zinc-800/80 backdrop-blur-sm hover:bg-zinc-700/80 text-white font-semibold px-10 py-4 rounded-xl transition-all duration-300 border border-zinc-600/50 hover:border-purple-400/60 hover:scale-105 overflow-hidden flex items-center gap-2">
-                                <svg class="w-5 h-5 group-hover/btn:text-purple-400 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                            <a href="/reviews" class="border border-zinc-700/80 hover:border-purple-500/40 bg-white/5 hover:bg-purple-500/8 text-zinc-300 hover:text-white font-semibold px-8 py-3.5 rounded-full transition-all duration-300 flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                                 </svg>
-                                <span class="relative z-10 group-hover/btn:text-purple-400 transition-colors">Ver Reviews</span>
-                                <div class="absolute inset-0 bg-purple-500/10 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                                Ver Reviews
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
+
         </SectionContainer>
     </main>
 </Layout>

@@ -7,7 +7,6 @@ import Hero from "../components/Hero.astro";
 import AboutMe from "../components/AboutMe.astro";
 import TitleSection from "../components/TitleSection.astro";
 import Skills from "../components/Skills.astro";
-import GLStudios from "../components/GLStudios.astro";
 import Contact from "../components/Contact.astro";
 ---
 
@@ -15,14 +14,14 @@ import Contact from "../components/Contact.astro";
 	title="Portfolio de 7Str1kes"
 	description="Desarrollador de software especializado en plugins de Minecraft, bots de Discord y desarrollo web"
 >
-	<main class="px-4 md:px-8">
-		<SectionContainer class="px-4 md:px-16 py-32 md:py-48">
+	<main>
+		<SectionContainer class="p-0 max-w-none">
 			<Hero>
 				<slot />
 			</Hero>
 		</SectionContainer>
 
-		<div class="space-y-32 md:space-y-40 pb-20">
+		<div class="px-4 md:px-8 space-y-32 md:space-y-40 pb-20">
 			<!-- About Me -->
 			<SectionContainer id="about" class="scroll-mt-20" data-scroll-animate="fade-up">
 				<TitleSection>
@@ -34,7 +33,7 @@ import Contact from "../components/Contact.astro";
 			<!-- Skills -->
 			<SectionContainer id="skills" class="scroll-mt-20" data-scroll-animate="fade-up">
 				<TitleSection>
-					Tecnologías
+					Especialidades
 				</TitleSection>
 				<Skills/>
 			</SectionContainer>

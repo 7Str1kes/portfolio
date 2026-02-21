@@ -22,13 +22,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 		<meta name="viewport" content="width=device-width" />
 		<meta name="theme-color" content="#a855f7" />
 
-		<!-- Canonical URL -->
 		<link rel="canonical" href={canonicalURL} />
 
-		<!-- Favicon -->
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:title" content={title} />
@@ -36,7 +33,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 		<meta property="og:image" content={new URL(image, Astro.site)} />
 		<meta property="og:locale" content="es_ES" />
 
-		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content={canonicalURL} />
 		<meta property="twitter:title" content={title} />
