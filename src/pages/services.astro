@@ -73,22 +73,28 @@ const services = [
         tags: ["Astro", "Next.js", "Vue", "Tailwind", "TypeScript"],
     },
     {
-        title: "Máquinas, Paneles y Servicios Linux",
+        title: "Máquinas Linux y Paneles Pterodactyl",
         icon: "🖥️",
-        accent: "purple",
+        accent: "emerald",
         description: "Instalación y configuración completa de infraestructura: desde la máquina hasta el panel de control, proxies inversos y todo lo necesario para mantener tus servicios en marcha.",
         features: [
-            "Instalación y configuración completa de Pterodactyl",
+            "Instalación y configuración completa de Pterodactyl (panel + Wings)",
             "Configuración de VPS, servidores dedicados y entornos Linux",
-            "Proxies inversos con Nginx",
-            "Servicios systemd, backups automáticos y cronjobs",
-            "Redes de Minecraft, gestión de puertos y firewalls",
+            "Proxies inversos con Nginx y certificados SSL",
+            "Backups automáticos",
+            "Gestión de puertos, firewalls y redes de Minecraft",
             "Monitorización, alertas y logs del sistema",
+            "Migración de servidores y recuperación de datos",
             "Soporte y mantenimiento de infraestructura continuo",
         ],
-        tags: ["Linux", "Pterodactyl", "Nginx"],
+        tags: ["Linux", "Pterodactyl", "Nginx", "Apache"],
     },
 ];
+
+const rows: (typeof services)[] = [];
+for (let i = 0; i < services.length; i += 2) {
+    rows.push(services.slice(i, i + 2));
+}
 ---
 
 <Layout
@@ -111,75 +117,77 @@ const services = [
                 </p>
             </div>
 
-            <div class="max-w-5xl mx-auto space-y-8">
-                {services.map((service, index) => (
-                    <div class={`group relative backdrop-blur-sm rounded-3xl p-8 md:p-10 transition-all duration-500 shadow-2xl overflow-hidden border ${
-                        service.accent === 'purple'
-                            ? 'bg-gradient-to-br from-purple-500/8 to-zinc-900/60 border-purple-500/25 hover:border-purple-500/45 hover:shadow-purple-500/15'
-                            : 'bg-gradient-to-br from-violet-500/8 to-zinc-900/60 border-violet-500/25 hover:border-violet-500/45 hover:shadow-violet-500/15'
-                    }`}>
+            <div class="max-w-6xl mx-auto space-y-6">
+                {rows.map((row) => (
+                    <div class={`grid gap-6 ${row.length === 2 ? 'md:grid-cols-2' : 'grid-cols-1 max-w-3xl mx-auto'}`}>
+                        {row.map((service) => {
+                            const isEmerald = service.accent === 'emerald';
+                            const isViolet = service.accent === 'violet';
+                            const borderClass = isEmerald
+                                ? 'border-emerald-500/25 hover:border-emerald-500/45 hover:shadow-emerald-500/10'
+                                : isViolet
+                                    ? 'border-violet-500/25 hover:border-violet-500/45 hover:shadow-violet-500/15'
+                                    : 'border-purple-500/25 hover:border-purple-500/45 hover:shadow-purple-500/15';
+                            const glowClass = isEmerald
+                                ? 'bg-gradient-to-br from-emerald-500/5 to-transparent'
+                                : isViolet
+                                    ? 'bg-gradient-to-br from-violet-500/5 to-transparent'
+                                    : 'bg-gradient-to-br from-purple-500/5 to-transparent';
+                            const blobClass = isEmerald ? 'bg-emerald-600/10' : isViolet ? 'bg-violet-600/10' : 'bg-purple-600/10';
+                            const iconClass = isEmerald
+                                ? 'bg-gradient-to-br from-emerald-500/15 to-emerald-700/10 border-emerald-500/30 group-hover:border-emerald-500/60'
+                                : isViolet
+                                    ? 'bg-gradient-to-br from-violet-500/15 to-violet-700/10 border-violet-500/30 group-hover:border-violet-500/60'
+                                    : 'bg-gradient-to-br from-purple-500/15 to-purple-700/10 border-purple-500/30 group-hover:border-purple-500/60';
+                            const titleHover = isEmerald ? 'group-hover:text-emerald-300' : isViolet ? 'group-hover:text-violet-300' : 'group-hover:text-purple-300';
+                            const checkColor = isEmerald ? 'text-emerald-400' : isViolet ? 'text-violet-400' : 'text-purple-400';
+                            const dotColor = isEmerald ? 'bg-emerald-400' : isViolet ? 'bg-violet-400' : 'bg-purple-400';
+                            const featureHover = isEmerald ? 'hover:border-emerald-500/30' : isViolet ? 'hover:border-violet-500/30' : 'hover:border-purple-500/30';
 
-                        <div class={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ${
-                            service.accent === 'purple'
-                                ? 'bg-gradient-to-br from-purple-500/5 to-transparent'
-                                : 'bg-gradient-to-br from-violet-500/5 to-transparent'
-                        }`}></div>
+                            return (
+                                <div class={`group relative backdrop-blur-sm rounded-3xl p-8 transition-all duration-500 shadow-2xl overflow-hidden border bg-gradient-to-br from-zinc-800/30 to-zinc-900/60 ${borderClass}`}>
+                                    <div class={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ${glowClass}`}></div>
+                                    <div class={`absolute -top-20 -right-20 w-56 h-56 rounded-full blur-3xl opacity-30 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none ${blobClass}`}></div>
 
-                        <div class={`absolute -top-24 -right-24 w-72 h-72 rounded-full blur-3xl opacity-40 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none ${
-                            service.accent === 'purple' ? 'bg-purple-600/10' : 'bg-violet-600/10'
-                        }`}></div>
-
-                        <div class="relative grid md:grid-cols-2 gap-8 items-start">
-
-                            <div class="space-y-5">
-                                <div class="flex items-center gap-4">
-                                    <div class={`w-14 h-14 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 border transition-all duration-300 group-hover:scale-110 ${
-                                        service.accent === 'purple'
-                                            ? 'bg-gradient-to-br from-purple-500/15 to-purple-700/10 border-purple-500/30 group-hover:border-purple-500/60'
-                                            : 'bg-gradient-to-br from-violet-500/15 to-violet-700/10 border-violet-500/30 group-hover:border-violet-500/60'
-                                    }`}>
-                                        {service.icon}
+                                    <div class="relative flex items-center gap-4 mb-5">
+                                        <div class={`w-13 h-13 w-12 h-12 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0 border transition-all duration-300 group-hover:scale-110 ${iconClass}`}>
+                                            {service.icon}
+                                        </div>
+                                        <div>
+                                            <h2 class={`text-xl font-bold text-white transition-colors duration-300 ${titleHover}`}>
+                                                {service.title}
+                                            </h2>
+                                            <p class="text-zinc-400 text-sm leading-snug mt-0.5">{service.description}</p>
+                                        </div>
                                     </div>
-                                    <h2 class={`text-2xl md:text-3xl font-bold text-white transition-colors duration-300 ${
-                                        service.accent === 'purple' ? 'group-hover:text-purple-300' : 'group-hover:text-violet-300'
-                                    }`}>
-                                        {service.title}
-                                    </h2>
-                                </div>
 
-                                <p class="text-zinc-300/90 leading-relaxed">
-                                    {service.description}
-                                </p>
+                                    <ul class="relative space-y-1.5 mb-5">
+                                        {service.features.map(feature => (
+                                            <li class={`flex items-start gap-2.5 p-2.5 rounded-xl bg-zinc-900/40 border border-zinc-800/50 transition-all duration-300 hover:bg-zinc-800/50 ${featureHover}`}>
+                                                <svg class={`w-4 h-4 flex-shrink-0 mt-0.5 ${checkColor}`} fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="text-zinc-300 hover:text-white transition-colors text-sm leading-relaxed">{feature}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
 
-                                <div class="flex flex-wrap gap-1.5 pt-1">
-                                    {service.tags.map(tag => (
-                                        <span class="px-2.5 py-0.5 rounded-md bg-zinc-800/80 border border-zinc-700/50 text-zinc-400 text-xs font-medium">
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-
-                                <div class="flex items-center gap-2 pt-1">
-                                    <div class={`w-2 h-2 rounded-full animate-pulse ${service.accent === 'purple' ? 'bg-purple-400' : 'bg-violet-400'}`}></div>
-                                    <span class="text-sm text-zinc-400">Disponible ahora</span>
-                                </div>
-                            </div>
-
-                            <div class="space-y-2.5">
-                                {service.features.map(feature => (
-                                    <div class={`flex items-start gap-3 p-3 rounded-xl bg-zinc-900/40 border border-zinc-800/50 transition-all duration-300 group/item hover:bg-zinc-800/50 ${
-                                        service.accent === 'purple'
-                                            ? 'hover:border-purple-500/30'
-                                            : 'hover:border-violet-500/30'
-                                    }`}>
-                                        <svg class={`w-4 h-4 flex-shrink-0 mt-0.5 ${service.accent === 'purple' ? 'text-purple-400' : 'text-violet-400'}`} fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                        </svg>
-                                        <span class="text-zinc-300 group-hover/item:text-white transition-colors text-sm leading-relaxed">{feature}</span>
+                                    <div class="relative flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-zinc-800/50">
+                                        <div class="flex flex-wrap gap-1.5">
+                                            {service.tags.map(tag => (
+                                                <span class="px-2.5 py-0.5 rounded-md bg-zinc-800/80 border border-zinc-700/50 text-zinc-400 text-xs font-medium">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <div class={`w-2 h-2 rounded-full animate-pulse ${dotColor}`}></div>
+                                            <span class="text-xs text-zinc-500">Disponible</span>
+                                        </div>
                                     </div>
-                                ))}
-                            </div>
-                        </div>
+                                </div>
+                            );
+                        })}
                     </div>
                 ))}
             </div>

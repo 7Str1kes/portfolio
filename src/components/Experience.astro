@@ -1,0 +1,103 @@
+---
+const entries = [
+    {
+        title: "Owner & Developer",
+        company: "GoldenLyons Network",
+        date: "2025 — Presente",
+        current: true,
+        description: "Desarrollo y mantenimiento de plugins Java personalizados, configuración completa del servidor, infraestructura Linux con Pterodactyl y Nginx, y liderazgo técnico del proyecto.",
+        link: null,
+    },
+    {
+        title: "Developer & Manager",
+        company: "Widow Network",
+        date: "2023 — 2025",
+        current: false,
+        description: "Desarrollo de plugins y bots de Discord, gestión del equipo técnico y configuración de servidores Minecraft en red. Primer proyecto profesional de larga duración.",
+        link: null,
+    },
+];
+---
+
+<div class="mt-8">
+    <ol class="relative" aria-label="Experiencia laboral">
+        {entries.map((entry, i) => (
+            <li
+                class="relative grid md:grid-cols-5 gap-6 md:gap-10 pb-12 last:pb-0 pl-10 md:pl-0"
+                style={`animation-delay: ${i * 150}ms`}
+            >
+                <div class="absolute left-0 top-0 bottom-0 md:hidden flex flex-col items-center">
+                    <div class="relative flex items-center justify-center mt-1.5">
+                        {entry.current && (
+                            <span class="absolute inline-flex w-4 h-4 rounded-full bg-purple-400/30 animate-ping"></span>
+                        )}
+                        <span class={`relative inline-flex w-2.5 h-2.5 rounded-full ${entry.current ? 'bg-purple-400 shadow-[0_0_8px_2px_rgba(192,132,252,0.5)]' : 'bg-zinc-500'}`}></span>
+                    </div>
+                    {i < entries.length - 1 && (
+                        <div class="w-px flex-1 mt-2 bg-gradient-to-b from-zinc-700 to-transparent"></div>
+                    )}
+                </div>
+
+                <div class="md:col-span-2 relative">
+                    <div class="hidden md:flex absolute -left-[calc(theme(spacing.10)+1px)] top-1.5 items-center">
+                        <div class="relative flex items-center justify-center">
+                            {entry.current && (
+                                <span class="absolute inline-flex w-4 h-4 rounded-full bg-purple-400/30 animate-ping"></span>
+                            )}
+                            <span class={`relative inline-flex w-2.5 h-2.5 rounded-full ${entry.current ? 'bg-purple-400 shadow-[0_0_8px_2px_rgba(192,132,252,0.5)]' : 'bg-zinc-600'}`}></span>
+                        </div>
+                    </div>
+
+                    <div class="sticky top-24">
+                        <h3 class={`text-lg font-bold ${entry.current ? 'text-purple-400' : 'text-purple-300/80'}`}>
+                            {entry.title}
+                        </h3>
+                        <h4 class="font-semibold text-white text-base">{entry.company}</h4>
+                        <time class="text-sm text-zinc-500 mt-0.5 block">{entry.date}</time>
+                        {entry.current && (
+                            <span class="inline-flex items-center gap-1.5 mt-2 px-2.5 py-0.5 rounded-full bg-purple-500/10 border border-purple-500/25 text-purple-400 text-xs font-medium">
+                                <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+                                Actualmente
+                            </span>
+                        )}
+                    </div>
+                </div>
+
+                <div class="md:col-span-3 relative">
+                    <div class="hidden md:block absolute -left-[calc(theme(spacing.10)+1px)] top-0 bottom-0 w-px bg-gradient-to-b from-zinc-700/60 to-transparent -z-10" style="margin-left: -4px;"></div>
+
+                    <div class="group bg-zinc-900/40 border border-zinc-800/50 hover:border-purple-500/25 rounded-xl p-5 transition-all duration-300 hover:bg-zinc-800/30">
+                        <p class="text-zinc-300 leading-relaxed text-sm md:text-base">
+                            {entry.description}
+                        </p>
+                        {entry.link && (
+                            <a
+                                href={entry.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center gap-1.5 mt-3 text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors duration-200"
+                            >
+                                Saber más
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </a>
+                        )}
+                    </div>
+                </div>
+            </li>
+        ))}
+    </ol>
+
+    <style>
+        ol {
+            --tl-left: 0px;
+        }
+        @media (min-width: 768px) {
+            ol {
+                padding-left: 2.5rem;
+                border-left: 1px solid rgba(63,63,70,0.5);
+            }
+        }
+    </style>
+</div>

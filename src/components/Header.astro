@@ -19,7 +19,6 @@ const currentPath = Astro.url.pathname;
                 <a href="/#about" class={`nav-link text-sm ${currentPath === '/' ? 'active' : ''} text-zinc-400 hover:text-white transition-colors duration-200`}>Sobre mí</a>
                 <a href="/services" class={`nav-link text-sm ${currentPath === '/services' ? 'active' : ''} text-zinc-400 hover:text-white transition-colors duration-200`}>Servicios</a>
                 <a href="/reviews" class={`nav-link text-sm ${currentPath === '/reviews' ? 'active' : ''} text-zinc-400 hover:text-white transition-colors duration-200`}>Reviews</a>
-                <a href="/experience" class={`nav-link text-sm ${currentPath === '/experience' ? 'active' : ''} text-zinc-400 hover:text-white transition-colors duration-200`}>Experiencia</a>
             </div>
 
             <div class="flex items-center gap-3 shrink-0">
@@ -41,7 +40,7 @@ const currentPath = Astro.url.pathname;
     <div id="mobile-menu" class="hidden md:hidden bg-zinc-950/95 backdrop-blur-2xl border-b border-white/5 px-6 py-4 space-y-1">
         <a href="/#about" class={`mobile-link block px-3 py-2.5 text-sm ${currentPath === '/' ? 'active' : ''} text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-all`}>Sobre mí</a>
         <a href="/services" class={`mobile-link block px-3 py-2.5 text-sm ${currentPath === '/services' ? 'active' : ''} text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-all`}>Servicios</a>
-        <a href="/experience" class={`mobile-link block px-3 py-2.5 text-sm ${currentPath === '/experience' ? 'active' : ''} text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-all`}>Experiencia</a>
+        <a href="/reviews" class={`mobile-link block px-3 py-2.5 text-sm ${currentPath === '/reviews' ? 'active' : ''} text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-all`}>Reviews</a>
         <div class="pt-3 border-t border-white/5 mt-3">
             <a href="/#contact" class="block text-center text-sm font-semibold bg-gradient-to-r from-violet-500 to-purple-600 text-white px-4 py-2.5 rounded-full transition-all">
                 Contacto

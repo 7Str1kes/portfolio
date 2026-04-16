@@ -7,6 +7,7 @@ import Hero from "../components/Hero.astro";
 import AboutMe from "../components/AboutMe.astro";
 import TitleSection from "../components/TitleSection.astro";
 import Skills from "../components/Skills.astro";
+import Experience from "../components/Experience.astro";
 import Contact from "../components/Contact.astro";
 ---
 
@@ -22,6 +23,7 @@ import Contact from "../components/Contact.astro";
 		</SectionContainer>
 
 		<div class="px-4 md:px-8 space-y-32 md:space-y-40 pb-20">
+
 			<!-- About Me -->
 			<SectionContainer id="about" class="scroll-mt-20" data-scroll-animate="fade-up">
 				<TitleSection>
@@ -38,14 +40,13 @@ import Contact from "../components/Contact.astro";
 				<Skills/>
 			</SectionContainer>
 
-			<!--
-			<SectionContainer id="glstudios" class="scroll-mt-20" data-scroll-animate="fade-up">
+			<!-- Experience -->
+			<SectionContainer id="experience" class="scroll-mt-20" data-scroll-animate="fade-up">
 				<TitleSection>
-					GL Studios
+					Experiencia
 				</TitleSection>
-				<GLStudios/>
+				<Experience/>
 			</SectionContainer>
-			-->
 
 			<!-- Contact -->
 			<SectionContainer id="contact" class="scroll-mt-20" data-scroll-animate="scale">
@@ -54,6 +55,7 @@ import Contact from "../components/Contact.astro";
 				</TitleSection>
 				<Contact/>
 			</SectionContainer>
+
 		</div>
 	</main>
 </Layout>
