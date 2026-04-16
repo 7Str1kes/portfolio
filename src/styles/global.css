@@ -8,6 +8,7 @@
 body {
     background: linear-gradient(to bottom, #0a0a0f 0%, #0f0a1a 25%, #150d20 50%, #0a0a12 75%, #0a0a0f 100%);
     background-attachment: fixed;
+    font-family: Arial, sans-serif;
 }
 
 /* Custom scrollbar */

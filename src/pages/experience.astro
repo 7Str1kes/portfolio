@@ -5,29 +5,35 @@ import SectionContainer from "../components/SectionContainer.astro";
 
 const reviews = [
     {
-        server: "Página Web",
-        reviewerNick: "https.klev",
-        reviewerRole: "Cliente",
-        myRole: null,
-        logo: null,
-        logoIcon: "🌐",
-        rating: 5,
-        comment: "El desarrollador aparte de muy amable y comunicativo, me solicitó todo lo que yo quería para la realización de la página web y lo realizó al pie de la letra. Cumpliendo con mis expectativas en su totalidad. Además ofreció siempre la posibilidad de mejorar la página en caso de no cumplir o satisfacer mis expectativas, lo cual fue de mi agrado.",
-        date: "2026"
-    } 
+        server: "GoldenLyons Network",
+        reviewerNick: "Toni1487P",
+        reviewerRole: "Owner",
+        myRole: "Co-Owner & Developer",
+        logo: "/reviews-logos/goldenlyons-network.webp",
+        comment: "7Strikes dentro de GoldenLyons, ha demostrado un rendimiento excelente como Co-Owner y Developer, cumpliendo y superando expectativas en cada tarea que asume.\nSu nivel técnico, capacidad para liderar y compromiso constante han sido claves para el crecimiento y la estabilidad del proyecto. Resuelve problemas rápido, toma buenas decisiones y siempre busca mejorar el funcionamiento general del equipo.\nDestaca especialmente por su rapidez, responsabilidad y predisposición para colaborar cuando se lo necesita.\nLo recomiendo sin dudar para cualquier proyecto que busque alguien confiable, eficiente y realmente comprometido.",
+        initialDate: "2025",
+        endDate: "2025"
+    },
+    {
+        server: "Widow Network",
+        role: "Co-Owner",
+        logo: "/reviews-logos/widow-network.webp",
+        comment: "Durante todo el tiempo que ha trabajado en Widow, ha demostrado un desempeño sobresaliente, desempeñándose con excelencia como manager y developer, así como en otras responsabilidades clave. Su alto nivel técnico, capacidad de liderazgo y compromiso constante han sido fundamentales para el crecimiento y buen funcionamiento del equipo. Además de su profesionalismo, destaca por su calidad humana y su disposición para colaborar. Recomiendo plenamente su trabajo.",
+        initialDate: "2023",
+        endDate: "2025"
+    }
 ];
 ---
 
 <Layout
-    title="Experiencias de Clientes - 7Str1kes"
+    title="Experiencias de Clientes - 7Strikes"
     description="Opiniones y reviews de servidores que han trabajado con mis servicios"
 >
     <canvas id="particles-canvas"></canvas>
     <main class="px-4">
         <SectionContainer class="py-24">
             <div class="text-center mb-16">
-                <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">Mis Clientes</h1>
-                <p class="text-xl text-zinc-400">Lo que dicen quienes han trabajado conmigo</p>
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">Experiencia</h1>
             </div>
 
             <div class="mb-16 max-w-4xl mx-auto overflow-hidden relative py-4 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
@@ -68,17 +74,11 @@ const reviews = [
                                     <div class="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                                     <div class="relative flex items-center gap-4 mb-5">
-                                        {review.logo ? (
-                                            <img
+                                        <img
                                                 src={review.logo}
                                                 alt={review.server}
                                                 class="w-14 h-14 rounded-full object-cover border-2 border-zinc-700/50 group-hover:border-purple-500/40 transition-colors duration-300"
                                             />
-                                        ) : (
-                                            <div class="w-14 h-14 rounded-full border-2 border-zinc-700/50 group-hover:border-purple-500/40 transition-colors duration-300 bg-zinc-800/80 flex items-center justify-center text-2xl flex-shrink-0">
-                                                {review.logoIcon}
-                                            </div>
-                                        )}
                                         <div class="flex-1 min-w-0">
                                             <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors duration-300">{review.server}</h3>
                                         </div>
@@ -122,6 +122,29 @@ const reviews = [
                             class={`carousel-dot w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${i === 0 ? 'bg-purple-500 w-6' : 'bg-zinc-600 hover:bg-zinc-500'}`}
                         />
                     ))}
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <div class="group relative bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm border border-zinc-700/50 hover:border-purple-500/50 rounded-xl p-8 max-w-3xl mx-auto transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/10 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="relative">
+                        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors duration-300">¿Quieres trabajar conmigo?</h2>
+                        <p class="text-zinc-300 mb-6 text-lg leading-relaxed">
+                            Si tu servidor necesita adaptación Java/Bedrock o configuración profesional de plugins, contáctame y hablemos sobre tu proyecto.
+                        </p>
+                        <div class="flex flex-wrap gap-4 justify-center">
+                            <a href="/" class="group/btn relative bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-violet-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 hover:scale-105 overflow-hidden">
+                                <span class="relative z-10">Ver Portafolio</span>
+                                <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-violet-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                            </a>
+                            <a href="/services" class="group/btn relative bg-zinc-800/80 backdrop-blur-sm hover:bg-zinc-700/80 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 border border-zinc-600/50 hover:border-purple-400/60 hover:scale-105 overflow-hidden">
+                                <span class="relative z-10 group-hover/btn:text-purple-400 transition-colors">Ver Servicios</span>
+                                <div class="absolute inset-0 bg-purple-500/10 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </SectionContainer>

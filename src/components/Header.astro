@@ -1,4 +1,5 @@
 ---
+const currentPath = Astro.url.pathname;
 ---
 
 <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
@@ -15,9 +16,10 @@
             </a>
 
             <div class="hidden md:flex items-center gap-7 flex-1 justify-center">
-                <a href="/#about" class="nav-link text-sm text-zinc-400 hover:text-white transition-colors duration-200">Sobre mí</a>
-                <a href="/services" class="text-sm text-purple-300 hover:text-purple-200 transition-colors duration-200 font-medium">Servicios</a>
-                <a href="/reviews" class="nav-link text-sm text-zinc-400 hover:text-white transition-colors duration-200">Reviews</a>
+                <a href="/#about" class={`nav-link text-sm ${currentPath === '/' ? 'active' : ''} text-zinc-400 hover:text-white transition-colors duration-200`}>Sobre mí</a>
+                <a href="/services" class={`nav-link text-sm ${currentPath === '/services' ? 'active' : ''} text-zinc-400 hover:text-white transition-colors duration-200`}>Servicios</a>
+                <a href="/reviews" class={`nav-link text-sm ${currentPath === '/reviews' ? 'active' : ''} text-zinc-400 hover:text-white transition-colors duration-200`}>Reviews</a>
+                <a href="/experience" class={`nav-link text-sm ${currentPath === '/experience' ? 'active' : ''} text-zinc-400 hover:text-white transition-colors duration-200`}>Experiencia</a>
             </div>
 
             <div class="flex items-center gap-3 shrink-0">
@@ -37,9 +39,9 @@
     </div>
 
     <div id="mobile-menu" class="hidden md:hidden bg-zinc-950/95 backdrop-blur-2xl border-b border-white/5 px-6 py-4 space-y-1">
-        <a href="/#about" class="block px-3 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Sobre mí</a>
-        <a href="/services" class="block px-3 py-2.5 text-sm text-purple-300 hover:text-purple-200 hover:bg-purple-500/10 rounded-lg transition-all">Servicios</a>
-        <a href="/reviews" class="block px-3 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Reviews</a>
+        <a href="/#about" class={`mobile-link block px-3 py-2.5 text-sm ${currentPath === '/' ? 'active' : ''} text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-all`}>Sobre mí</a>
+        <a href="/services" class={`mobile-link block px-3 py-2.5 text-sm ${currentPath === '/services' ? 'active' : ''} text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-all`}>Servicios</a>
+        <a href="/experience" class={`mobile-link block px-3 py-2.5 text-sm ${currentPath === '/experience' ? 'active' : ''} text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-all`}>Experiencia</a>
         <div class="pt-3 border-t border-white/5 mt-3">
             <a href="/#contact" class="block text-center text-sm font-semibold bg-gradient-to-r from-violet-500 to-purple-600 text-white px-4 py-2.5 rounded-full transition-all">
                 Contacto
@@ -83,5 +85,15 @@
 
     .nav-link:hover::after {
         width: 100%;
+    }
+
+    .nav-link.active {
+        color: #c084fc;
+        font-weight: 500;
+    }
+
+    .mobile-link.active {
+        color: #c084fc;
+        font-weight: 500;
     }
 </style>
