@@ -7,7 +7,7 @@ const projects = [
     {
         id: 1,
         title: "GoldenLyons Network Website",
-        description: "Sitio web de GoldenLyons Network",
+        description: "Sitio web oficial de GoldenLyons Network.",
         image: "/projects/glnetwork-web.webp",
         category: "web",
         type: "privado",
@@ -18,62 +18,26 @@ const projects = [
     },
     {
         id: 2,
-        title: "Bot de Moderación Premium",
-        description: "Bot de Discord con sistema de moderación automática, tickets, verificación y logs detallados.",
+        title: "GL Studios Website",
+        description: "Sitio web corporativo de GL Studios con panel de administración y sistema de tickets. (En desarrollo)",
         image: "",
-        category: "discord-bot",
-        type: "privado",
-        technologies: ["Node.js", "Discord.js", "MongoDB"],
+        category: "web",
+        type: "público",
+        technologies: ["Next.js", "Tailwind CSS", "TypeScript", "MySQL"],
         featured: true,
-        demoUrl: null,
+        demoUrl: "https://studio.goldenlyons.net",
         repoUrl: null
     },
     {
         id: 3,
-        title: "GL Studios Website",
-        description: "Sitio web corporativo moderno con panel de administración y sistema de tickets.",
-        image: "",
+        title: "Portfolio — Klev",
+        description: "Portfolio personal diseñado y desarrollado para el cliente Klev.",
+        image: "/projects/klev-portfolio.webp",
         category: "web",
-        type: "público",
+        type: "privado",
         technologies: ["Astro", "Tailwind CSS", "TypeScript"],
         featured: true,
-        demoUrl: "https://glstudios.dev",
-        repoUrl: null
-    },
-    {
-        id: 4,
-        title: "Sistema de Clanes",
-        description: "Plugin de clanes con territorios, guerras, alianzas y sistema de ranking.",
-        image: "",
-        category: "minecraft-plugin",
-        type: "privado",
-        technologies: ["Java", "SQLite", "Vault API"],
-        featured: false,
-        demoUrl: null,
-        repoUrl: null
-    },
-    {
-        id: 5,
-        title: "Bot de Música Premium",
-        description: "Bot de Discord para reproducción de música de alta calidad con cola personalizada.",
-        image: "",
-        category: "discord-bot",
-        type: "público",
-        technologies: ["Node.js", "Discord.js", "Lavalink"],
-        featured: false,
-        demoUrl: null,
-        repoUrl: "https://github.com/7Str1kes/music-bot"
-    },
-    {
-        id: 6,
-        title: "Dashboard de Servidor",
-        description: "Panel web para administrar servidores de Minecraft en tiempo real.",
-        image: "",
-        category: "web",
-        type: "privado",
-        technologies: ["Next.js", "React", "WebSocket", "MySQL"],
-        featured: false,
-        demoUrl: null,
+        demoUrl: "https://www.j2bklev.com/",
         repoUrl: null
     }
 ];
@@ -90,6 +54,35 @@ const types = [
     { value: "público", label: "Público" },
     { value: "privado", label: "Privado" }
 ];
+
+const techColors: Record<string, string> = {
+    "Next.js":      "background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15);color:#e4e4e7;",
+    "Astro":        "background:rgba(255,102,51,0.08);border-color:rgba(255,102,51,0.25);color:#fb923c;",
+    "React":        "background:rgba(97,218,251,0.08);border-color:rgba(97,218,251,0.25);color:#67e8f9;",
+    "TypeScript":   "background:rgba(49,120,198,0.10);border-color:rgba(49,120,198,0.30);color:#60a5fa;",
+    "JavaScript":   "background:rgba(247,223,30,0.08);border-color:rgba(247,223,30,0.25);color:#fde047;",
+    "HTML":         "background:rgba(227,76,38,0.08);border-color:rgba(227,76,38,0.25);color:#f87171;",
+    "CSS":          "background:rgba(38,77,228,0.08);border-color:rgba(38,77,228,0.25);color:#818cf8;",
+    "Tailwind CSS": "background:rgba(56,189,248,0.08);border-color:rgba(56,189,248,0.25);color:#38bdf8;",
+    "Node.js":      "background:rgba(104,160,99,0.10);border-color:rgba(104,160,99,0.30);color:#86efac;",
+    "Discord.js":   "background:rgba(88,101,242,0.10);border-color:rgba(88,101,242,0.30);color:#a5b4fc;",
+    "MongoDB":      "background:rgba(71,162,72,0.10);border-color:rgba(71,162,72,0.30);color:#4ade80;",
+    "MySQL":        "background:rgba(0,117,143,0.10);border-color:rgba(0,117,143,0.30);color:#22d3ee;",
+    "Java":         "background:rgba(237,106,90,0.08);border-color:rgba(237,106,90,0.25);color:#fca5a5;",
+    "Python":       "background:rgba(55,118,171,0.10);border-color:rgba(55,118,171,0.30);color:#93c5fd;",
+    "Docker":       "background:rgba(13,183,237,0.08);border-color:rgba(13,183,237,0.25);color:#67e8f9;",
+    "SQLite":       "background:rgba(0,121,176,0.08);border-color:rgba(0,121,176,0.25);color:#7dd3fc;",
+    "WebSocket":    "background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);color:#6ee7b7;",
+};
+
+function getTechStyle(tech: string): string {
+    return techColors[tech] ?? "background:rgba(39,39,42,0.6);border-color:rgba(63,63,70,0.5);color:#d4d4d8;";
+}
+
+function getCategoryIcon(categoryValue: string): string {
+    const cat = categories.find(c => c.value === categoryValue);
+    return cat ? cat.icon : "🎯";
+}
 ---
 
 <Layout
@@ -99,6 +92,7 @@ const types = [
     <canvas id="particles-canvas"></canvas>
     <main class="px-4">
         <SectionContainer class="py-24">
+
             <div class="text-center mb-16" data-scroll-animate="fade-up">
                 <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
                     Mis <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-600">Proyectos</span>
@@ -119,7 +113,7 @@ const types = [
 
                             <div class="relative h-48 bg-gradient-to-br from-purple-900/20 to-violet-900/20 overflow-hidden">
                                 {project.image ? (
-                                    <>
+                                    <div>
                                         <img
                                             src={project.image}
                                             alt={project.title}
@@ -130,10 +124,10 @@ const types = [
                                             class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-500"
                                         />
                                         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/40 to-transparent"></div>
-                                    </>
+                                    </div>
                                 ) : (
                                     <div class="absolute inset-0 flex items-center justify-center">
-                                        <span class="text-6xl opacity-20">{categories.find(c => c.value === project.category)?.icon}</span>
+                                        <span class="text-6xl opacity-20">{getCategoryIcon(project.category)}</span>
                                     </div>
                                 )}
                                 <div class="absolute top-3 right-3 z-10">
@@ -153,7 +147,7 @@ const types = [
 
                                 <div class="flex flex-wrap gap-2">
                                     {project.technologies.map(tech => (
-                                        <span class="px-3 py-1 bg-zinc-800/60 border border-zinc-700/50 rounded-lg text-xs text-zinc-300">
+                                        <span class="px-2.5 py-1 rounded-md text-xs font-medium border" style={getTechStyle(tech)}>
                                             {tech}
                                         </span>
                                     ))}
@@ -175,9 +169,12 @@ const types = [
                                             href={project.repoUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            class="flex-1 bg-zinc-800/80 hover:bg-zinc-700/80 text-white font-semibold px-4 py-2 rounded-lg border border-zinc-600/50 hover:border-purple-400/60 transition-all duration-300 text-center text-sm"
+                                            class="flex-1 bg-zinc-800/80 hover:bg-zinc-700/80 text-white font-semibold px-4 py-2 rounded-lg border border-zinc-600/50 hover:border-purple-400/60 transition-all duration-300 text-center text-sm flex items-center justify-center gap-1.5"
                                         >
-                                            Código
+                                            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                                            </svg>
+                                            GitHub
                                         </a>
                                     )}
                                     {!project.demoUrl && !project.repoUrl && (
@@ -209,7 +206,6 @@ const types = [
                                 ))}
                             </div>
                         </div>
-
                         <div>
                             <label class="block text-sm font-semibold text-purple-400 mb-3">Tipo</label>
                             <div class="grid grid-cols-3 gap-2" id="type-filters">
@@ -242,7 +238,7 @@ const types = [
 
                             <div class="relative h-40 bg-gradient-to-br from-purple-900/20 to-violet-900/20 overflow-hidden">
                                 {project.image ? (
-                                    <>
+                                    <div>
                                         <img
                                             src={project.image}
                                             alt={project.title}
@@ -253,10 +249,10 @@ const types = [
                                             class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-500"
                                         />
                                         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/40 to-transparent"></div>
-                                    </>
+                                    </div>
                                 ) : (
                                     <div class="absolute inset-0 flex items-center justify-center">
-                                        <span class="text-5xl opacity-20">{categories.find(c => c.value === project.category)?.icon}</span>
+                                        <span class="text-5xl opacity-20">{getCategoryIcon(project.category)}</span>
                                     </div>
                                 )}
                                 <div class="absolute top-2 right-2 z-10">
@@ -276,7 +272,7 @@ const types = [
 
                                 <div class="flex flex-wrap gap-1.5">
                                     {project.technologies.slice(0, 3).map(tech => (
-                                        <span class="px-2 py-0.5 bg-zinc-800/60 border border-zinc-700/50 rounded text-xs text-zinc-300">
+                                        <span class="px-2 py-0.5 rounded text-xs font-medium border" style={getTechStyle(tech)}>
                                             {tech}
                                         </span>
                                     ))}
@@ -298,9 +294,12 @@ const types = [
                                             href={project.repoUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            class="flex-1 bg-zinc-800/80 hover:bg-zinc-700/80 text-white font-semibold px-3 py-1.5 rounded-lg border border-zinc-600/50 hover:border-purple-400/60 transition-all duration-300 text-center text-xs"
+                                            class="flex-1 bg-zinc-800/80 hover:bg-zinc-700/80 text-white font-semibold px-3 py-1.5 rounded-lg border border-zinc-600/50 hover:border-purple-400/60 transition-all duration-300 text-center text-xs flex items-center justify-center gap-1"
                                         >
-                                            Repo
+                                            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                                            </svg>
+                                            GitHub
                                         </a>
                                     )}
                                     {!project.demoUrl && !project.repoUrl && (
@@ -323,6 +322,7 @@ const types = [
                     <p class="text-xl text-zinc-400">No se encontraron proyectos con estos filtros</p>
                 </div>
             </div>
+
         </SectionContainer>
     </main>
 </Layout>
@@ -330,10 +330,8 @@ const types = [
 <style>
     #particles-canvas {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
         pointer-events: none;
         z-index: 1;
     }
@@ -380,14 +378,9 @@ const types = [
 
     function filterProjects() {
         let visibleCount = 0;
-
         projectCards.forEach(card => {
-            const cardCategory = card.getAttribute('data-category');
-            const cardType = card.getAttribute('data-type');
-
-            const categoryMatch = currentCategory === 'all' || cardCategory === currentCategory;
-            const typeMatch = currentType === 'all' || cardType === currentType;
-
+            const categoryMatch = currentCategory === 'all' || card.getAttribute('data-category') === currentCategory;
+            const typeMatch = currentType === 'all' || card.getAttribute('data-type') === currentType;
             if (categoryMatch && typeMatch) {
                 card.classList.remove('hidden');
                 visibleCount++;
@@ -395,13 +388,8 @@ const types = [
                 card.classList.add('hidden');
             }
         });
-
         if (noResults) {
-            if (visibleCount === 0) {
-                noResults.classList.remove('hidden');
-            } else {
-                noResults.classList.add('hidden');
-            }
+            noResults.classList.toggle('hidden', visibleCount > 0);
         }
     }
 

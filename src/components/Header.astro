@@ -18,7 +18,8 @@ const currentPath = Astro.url.pathname;
             <div class="hidden md:flex items-center gap-7 flex-1 justify-center">
                 <a href="/#about" class={`nav-link text-sm ${currentPath === '/' ? 'active' : ''} text-zinc-400 hover:text-white transition-colors duration-200`}>Sobre mí</a>
                 <a href="/services" class={`nav-link text-sm ${currentPath === '/services' ? 'active' : ''} text-zinc-400 hover:text-white transition-colors duration-200`}>Servicios</a>
-                <a href="/reviews" class={`nav-link text-sm ${currentPath === '/reviews' ? 'active' : ''} text-zinc-400 hover:text-white transition-colors duration-200`}>Reviews</a>
+                <a href="/reviews" class={`nav-link text-sm ${currentPath === '/reviews' ? 'active' : ''} text-zinc-400 hover:text-white transition-colors duration-200`}>Reseñas</a>
+                <a href="/projects" class={`nav-link text-sm ${currentPath === '/projects' ? 'active' : ''} text-zinc-400 hover:text-white transition-colors duration-200`}>Proyectos</a>
             </div>
 
             <div class="flex items-center gap-3 shrink-0">
@@ -40,7 +41,8 @@ const currentPath = Astro.url.pathname;
     <div id="mobile-menu" class="hidden md:hidden bg-zinc-950/95 backdrop-blur-2xl border-b border-white/5 px-6 py-4 space-y-1">
         <a href="/#about" class={`mobile-link block px-3 py-2.5 text-sm ${currentPath === '/' ? 'active' : ''} text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-all`}>Sobre mí</a>
         <a href="/services" class={`mobile-link block px-3 py-2.5 text-sm ${currentPath === '/services' ? 'active' : ''} text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-all`}>Servicios</a>
-        <a href="/reviews" class={`mobile-link block px-3 py-2.5 text-sm ${currentPath === '/reviews' ? 'active' : ''} text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-all`}>Reviews</a>
+        <a href="/reviews" class={`mobile-link block px-3 py-2.5 text-sm ${currentPath === '/reviews' ? 'active' : ''} text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-all`}>Reseñas</a>
+        <a href="/projects" class={`mobile-link block px-3 py-2.5 text-sm ${currentPath === '/projects' ? 'active' : ''} text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-all`}>Proyectos</a>
         <div class="pt-3 border-t border-white/5 mt-3">
             <a href="/#contact" class="block text-center text-sm font-semibold bg-gradient-to-r from-violet-500 to-purple-600 text-white px-4 py-2.5 rounded-full transition-all">
                 Contacto
