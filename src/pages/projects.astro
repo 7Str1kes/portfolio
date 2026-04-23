@@ -10,7 +10,7 @@ const projects = [
         description: "Sitio web oficial de GoldenLyons Network.",
         image: "/projects/glnetwork-web.webp",
         category: "web",
-        type: "privado",
+        type: "private",
         technologies: ["Next.js", "Tailwind CSS", "MySQL"],
         featured: true,
         demoUrl: "https://web.goldenlyons.net/",
@@ -22,7 +22,7 @@ const projects = [
         description: "Sitio web corporativo de GL Studios con panel de administración y sistema de tickets. (En desarrollo)",
         image: "",
         category: "web",
-        type: "público",
+        type: "public",
         technologies: ["Next.js", "Tailwind CSS", "TypeScript", "MySQL"],
         featured: true,
         demoUrl: "https://studio.goldenlyons.net",
@@ -34,11 +34,23 @@ const projects = [
         description: "Portfolio personal diseñado y desarrollado para el cliente Klev.",
         image: "/projects/klev-portfolio.webp",
         category: "web",
-        type: "privado",
+        type: "private",
         technologies: ["Astro", "Tailwind CSS", "TypeScript"],
         featured: true,
         demoUrl: "https://www.j2bklev.com/",
         repoUrl: null
+    },
+    {
+        id: 4,
+        title: "AutoClicker",
+        description: "",
+        image: "",
+        category: "app",
+        type: "public",
+        technologies: ["C#"],
+        featured: true,
+        demoUrl: null,
+        repoUrl: "https://github.com/GoldenLyons-Studio/GLAutoClicker"
     }
 ];
 
@@ -46,13 +58,14 @@ const categories = [
     { value: "all", label: "Todos", icon: "🎯" },
     { value: "minecraft-plugin", label: "Plugins Minecraft", icon: "⚙️" },
     { value: "discord-bot", label: "Bots Discord", icon: "🤖" },
-    { value: "web", label: "Desarrollo Web", icon: "🌐" }
+    { value: "web", label: "Desarrollo Web", icon: "🌐" },
+    { value: "app", label: "Aplicaciones web", icon: "👠" }
 ];
 
 const types = [
     { value: "all", label: "Todos" },
-    { value: "público", label: "Público" },
-    { value: "privado", label: "Privado" }
+    { value: "public", label: "Público" },
+    { value: "private", label: "Privado" }
 ];
 
 const techColors: Record<string, string> = {
@@ -73,6 +86,7 @@ const techColors: Record<string, string> = {
     "Docker":       "background:rgba(13,183,237,0.08);border-color:rgba(13,183,237,0.25);color:#67e8f9;",
     "SQLite":       "background:rgba(0,121,176,0.08);border-color:rgba(0,121,176,0.25);color:#7dd3fc;",
     "WebSocket":    "background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);color:#6ee7b7;",
+    "C#":           "background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);color:#6ee7b7;",
 };
 
 function getTechStyle(tech: string): string {
